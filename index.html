@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aidana Daulbayeva</title>
+    <title>hi, hello!</title>
     <style>
         :root {
             --bg-color: #f8f9fa;
@@ -111,9 +111,8 @@
 </head>
 <body data-theme="light">
     <div class="theme-switch-wrapper">
-        <button class="theme-toggle-btn" id="theme-toggle">
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark mode">
             <span class="theme-toggle-icon">🌙</span>
-            <span>Dark Mode</span>
         </button>
     </div>
     
@@ -126,7 +125,7 @@
         
         <p>i care deeply about community, wellbeing, and creative expression.</p>
         
-        <p>my journey began in a sustainable power electronics lab, where i was determined to save the world through science. seeking more direct impact beyond academic publications, i transitioned to product leadership. over eight years, I've designed and shipped hardware that have helped companies secure $m in seed funding, acquire their first customers, grow top-of-funnel by 100%, and navigate successful series b acquisitions — reaching over 30 million users along the way.</p>
+        <p>my journey began in a sustainable power electronics lab, where i was determined to save the world through science. seeking more direct impact beyond academic publications, i transitioned to product leadership. over eight years, I've designed and shipped software and hardware that have helped companies secure $m in seed funding, acquire their first customers, grow top-of-funnel by 100%, and navigate successful series b acquisitions — reaching over 30 million users along the way.</p>
         
         <p>i bring startup scrappiness to building from scratch and researcher thoroughness to understanding what makes users love and actually use novel technology.</p>
         
@@ -160,7 +159,7 @@
     <script>
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeToggleIcon = document.querySelector('.theme-toggle-icon');
-        const themeToggleText = themeToggleBtn.querySelector('span:last-child');
+        // No longer need to reference the text element
         
         // Check for saved theme preference or use preferred color scheme
         const currentTheme = localStorage.getItem('theme') || 
@@ -170,7 +169,6 @@
         if (currentTheme === 'dark') {
             document.body.setAttribute('data-theme', 'dark');
             themeToggleIcon.textContent = '☀️';
-            themeToggleText.textContent = 'Light Mode';
         }
         
         // Function to switch theme
@@ -179,12 +177,10 @@
                 document.body.setAttribute('data-theme', 'dark');
                 localStorage.setItem('theme', 'dark');
                 themeToggleIcon.textContent = '☀️';
-                themeToggleText.textContent = 'Light Mode';
             } else {
                 document.body.setAttribute('data-theme', 'light');
                 localStorage.setItem('theme', 'light');
                 themeToggleIcon.textContent = '🌙';
-                themeToggleText.textContent = 'Dark Mode';
             }
         }
         
