@@ -3,109 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hello!</title>
+    <title>Aidana | AI Experience Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f8f9fa;
-            --text-color: #212529;
-            --accent-color: #ff7b00;
-            --secondary-color: #ffac4d;
-            --light-gray: #e9ecef;
+            --primary: #2d3748;
+            --secondary: #718096;
+            --accent: #ff7b00;
+            --background: #ffffff;
+            --light-bg: #f7fafc;
+            --border: #e2e8f0;
         }
-        
+
         [data-theme="dark"] {
-            --bg-color: #212529;
-            --text-color: #f8f9fa;
-            --light-gray: #343a40;
+            --primary: #f8f9fa;
+            --secondary: #cbd5e0;
+            --background: #1a202c;
+            --light-bg: #2d3748;
+            --border: #4a5568;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            max-width: 800px;
+            color: var(--primary);
+            background-color: var(--background);
+            max-width: 900px;
             margin: 0 auto;
             padding: 2rem;
         }
-        
+
+        .layout {
+            display: grid;
+            grid-template-columns: 1fr 200px;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: var(--light-bg);
+            overflow: hidden;
+            border: 2px solid var(--border);
+        }
+
+        .profile-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            width: 100%;
+        }
+
+        .profile-link {
+            padding: 0.5rem;
+            text-align: center;
+            background-color: var(--light-bg);
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+            width: 100%;
+        }
+
+        .profile-link:hover {
+            transform: translateX(3px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .highlighted-intro {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .number {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        header {
+            margin-bottom: 3rem;
+        }
+
         h1 {
             font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-        }
-        
-        h2 {
-            font-size: 1.75rem;
             font-weight: 600;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
         }
-        
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 2rem 0 1rem;
+            color: var(--primary);
+        }
+
         p {
             margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+            color: var(--secondary);
         }
-        
-        ul {
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .intro {
+            margin-bottom: 2rem;
+        }
+
+        .experience {
+            margin-bottom: 3rem;
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .experience-item {
             margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
         }
-        
+
+        .highlight {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        ul {
+            list-style-type: none;
+            margin-bottom: 1.5rem;
+        }
+
         li {
             margin-bottom: 1rem;
+            position: relative;
+            padding-left: 1.5rem;
         }
-        
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: all 0.2s ease;
-            border-bottom: 1px solid transparent;
+
+        li::before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
         }
-        
-        a:hover {
-            border-bottom: 1px solid var(--accent-color);
-        }
-        
-        .highlight {
-            font-weight: bold;
-        }
-        
-        .contact-links {
+
+        .links {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
-        
-        .contact-links a {
-            display: inline-block;
+
+        .link-item {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--light-bg);
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
         }
-        
-        .container {
-            margin-top: 3rem;
+
+        .link-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
-        
-        .recently-section {
-            background-color: var(--light-gray);
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-        
+
         footer {
             margin-top: 3rem;
             padding-top: 1rem;
-            border-top: 1px solid var(--light-gray);
+            border-top: 1px solid var(--border);
             font-size: 0.9rem;
-            color: #6c757d;
+            color: var(--secondary);
+        }
+
+        .theme-switch-wrapper {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+
+        .theme-toggle-btn {
+            background-color: var(--light-bg);
+            color: var(--primary);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            outline: none;
+        }
+
+        .theme-toggle-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-section {
+                order: -1;
+                margin-bottom: 2rem;
+            }
+
+            .profile-links {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .profile-link {
+                width: auto;
+                padding: 0.5rem 1rem;
+            }
         }
     </style>
 </head>
@@ -115,43 +257,48 @@
             <span class="theme-toggle-icon">🌙</span>
         </button>
     </div>
-    
+
     <header>
         <h1>hi, i'm aidana</h1>
     </header>
-    
-    <div class="container">
-        <p>i work on multi-modal AI experiences, with focus on ambient, ethical, and empathetic computing.</p>
-        
-        <p>i care deeply about community, wellbeing, and creative expression.</p>
-        
-        <p>my journey began in a sustainable power electronics lab, where i was determined to save the world through science. seeking more direct impact beyond academic publications, i transitioned to product leadership. over eight years, I've designed and shipped software and hardware that have helped companies secure $m in seed funding, acquire their first customers, grow top-of-funnel by 100%, and navigate successful series b acquisitions — reaching over 30 million users along the way.</p>
-        
-        <p>i bring startup scrappiness to building from scratch and researcher thoroughness to understanding what makes users love and actually use novel technology.</p>
-        
-        <div class="recently-section">
-            <h2>recently:</h2>
-            <ul>
-                <li>principal product manager at <a href="https://www.linkedin.com/company/radiantgraph/" target="_blank" class="highlight">RadiantGraph</a>, building Health Data Insights Engine, voice AI agents and genAI marketing tools for personalization in healthcare</li>
-                
-                <li><span class="highlight">senior product manager at <a href="https://iyo.audio" target="_blank">IYO</a>, <a href="https://x.company" target="_blank">Google X Moonshot Factory</a> spin-off</span> building AI audio computer + audioOS platform. watch our <a href="https://www.ted.com/talks/jason_rugolo_welcome_to_the_world_of_audio_computers?language=en" target="_blank">TED talk</a></li>
-                
-                <li><span class="highlight">graduate researcher at <a href="https://www.media.mit.edu" target="_blank">MIT Media Lab</a></span>, <a href="https://www.media.mit.edu/groups/affective-computing/overview/" target="_blank">Affective Computing Group</a> <span class="highlight">+ <a href="https://psychiatry.weill.cornell.edu/" target="_blank">Weill Cornell Medical</a></span> working on <span class="highlight">AI for empathy in healthcare</span>, read more <a href="https://dspace.mit.edu/handle/1721.1/151692">here</a>, and <a href="https://link.springer.com/article/10.1007/s40596-023-01900-8">here</a></li>
-                
-                <li><span class="highlight">co-founder, product lead at <a href="https://www.projectus.ai/" target="_blank">projectus.ai</a>,</span> building an <span class="highlight">AI coach</span> for emotional intelligence</li>
-            </ul>
-        </div>
-        
-        <h2>say hi:</h2>
-        <div class="contact-links">
-            <a href="https://linkedin.com/in/aidanad" target="_blank">linkedin</a>
-            <a href="https://github.com/aida-na" target="_blank">github</a>
-            <a href="https://open.spotify.com/user/21dzw4z7joeryrdlxpncjvh7a?si=4e9001b0dfe64fec&nd=1&dlsi=c7e21fff693246ff">listening & </a> <a href="https://www.goodreads.com/user/show/94981978-aidana">reading </a>
-            <a href="mailto:aidana@alum.mit.edu">email</a>
-            <a href="Aidana_CV_2025_PM.pdf" target="_blank">CV</a>
-        </div>
+
+    <div class="layout">
+        <section class="intro">
+            <p class="highlighted-intro">i work on multi-modal AI experiences, with focus on ambient, ethical, and empathetic computing.</p>
+            <p>i care deeply about community, wellbeing, and creative expression.</p>
+            <p>my journey began in a sustainable power electronics lab, where i was determined to save the world through science. seeking more direct impact beyond academic publications, i transitioned to product leadership. over <span class="number">eight years</span>, I've designed and shipped software and hardware that have helped companies secure <span class="number">$m</span> in seed funding, acquire their first customers, grow top-of-funnel by <span class="number">100%</span>, and navigate successful series b acquisitions — reaching over <span class="number">30 million</span> users along the way.</p>
+            <p>i bring startup scrappiness to building from scratch and researcher thoroughness to understanding what makes users love and actually use novel technology.</p>
+        </section>
+
+        <section class="profile-section">
+            <div class="profile-photo">
+            <img src="aidana.png" alt="Aidana's photo" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="profile-links">
+                <a href="https://linkedin.com/in/aidanad" target="_blank" class="profile-link">linkedin</a>
+                <a href="https://github.com/aida-na" target="_blank" class="profile-link">github</a>
+                <a href="https://open.spotify.com/user/21dzw4z7joeryrdlxpncjvh7a?si=4e9001b0dfe64fec&nd=1&dlsi=c7e21fff693246ff" target="_blank" class="profile-link">listening</a>
+                <a href="https://www.goodreads.com/user/show/94981978-aidana" target="_blank" class="profile-link">reading</a>
+                <a href="mailto:aidana@alum.mit.edu" class="profile-link">email</a>
+                <a href="Aidana_CV_2025_PM.pdf" target="_blank" class="profile-link">CV</a>
+            </div>
+        </section>
     </div>
-    
+
+    <section class="experience">
+        <h2>recently:</h2>
+        <ul>
+            <li>principal product manager at <a href="https://www.linkedin.com/company/radiantgraph/" target="_blank" class="highlight">RadiantGraph</a>, building Health Data Insights Engine, voice AI agents and genAI marketing tools for personalization in healthcare</li>
+            
+            <li><span class="highlight">senior product manager at <a href="https://iyo.audio" target="_blank">IYO</a></span>, Google X Moonshot Factory spin-off building <span class="highlight">AI audio computer</span> + audioOS platform. watch our <a href="https://www.ted.com/talks/jason_rugolo_welcome_to_the_world_of_audio_computers?language=en" target="_blank">TED talk</a></li>
+            
+            <li><span class="highlight">graduate researcher at <a href="https://www.media.mit.edu" target="_blank">MIT Media Lab</a></span>, Affective Computing Group + Weill Cornell Medical working on <span class="highlight">AI for empathy in healthcare</span>, read more <a href="https://dspace.mit.edu/handle/1721.1/151692" target="_blank">here</a>, and <a href="https://link.springer.com/article/10.1007/s40596-023-01900-8" target="_blank">here</a></li>
+            
+            <li><span class="highlight">co-founder, product lead at <a href="https://www.projectus.ai/" target="_blank">projectus.ai</a>,</span> building an <span class="highlight">AI coach</span> for emotional intelligence</li>
+        </ul>
+    </section>
+
+
     <footer>
         <p>© 2025 from sunny (not) san francisco</p>
     </footer>
@@ -159,7 +306,6 @@
     <script>
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeToggleIcon = document.querySelector('.theme-toggle-icon');
-        // No longer need to reference the text element
         
         // Check for saved theme preference or use preferred color scheme
         const currentTheme = localStorage.getItem('theme') || 
