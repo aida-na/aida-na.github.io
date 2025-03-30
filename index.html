@@ -41,87 +41,129 @@
             padding: 2rem;
         }
 
-        .layout {
-            display: grid;
-            grid-template-columns: 1fr 200px;
+        /* Header section with photo and name */
+        .header-container {
+            display: flex;
+            align-items: center;
             gap: 2rem;
             margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
         }
 
-        .profile-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
+        .header-text {
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
         }
 
         .profile-photo {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            background-color: var(--light-bg);
             overflow: hidden;
             border: 2px solid var(--border);
+            flex-shrink: 0;
         }
 
-        .profile-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            width: 100%;
+        /* Main content layout */
+        .main-container {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 3rem;
         }
 
-        .profile-link {
-            padding: 0.5rem;
-            text-align: center;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-            width: 100%;
-        }
-
-        .profile-link:hover {
-            transform: translateX(3px);
+        /* Intro section */
+        .intro {
+            max-width: 650px;
         }
 
         .highlighted-intro {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 500;
             color: var(--primary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
             line-height: 1.4;
         }
 
+        p {
+            margin-bottom: 1.25rem;
+            color: var(--secondary);
+            text-align: justify;
+        }
+
+        /* Accent numbers */
         .number {
             color: var(--accent);
             font-weight: 500;
         }
 
-        header {
+        /* Link sidebar */
+        .sidebar {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+        .sidebar-link {
+            padding: 0.5rem;
+            text-align: center;
             color: var(--accent);
+            border-bottom: 1px solid var(--border);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-link:hover {
+            transform: translateX(5px);
+            opacity: 0.8;
+        }
+
+        /* Experience section */
+        .experience {
+            margin: 2rem 0;
+            background-color: var(--light-bg);
+            padding: 1.25rem;
+            border-radius: 8px;
+            grid-column: span 2;
         }
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 500;
-            margin: 0.5rem 0 0.5rem;
+            margin-bottom: 0.75rem;
             color: var(--primary);
         }
 
-        p {
-            margin-bottom: 1.5rem;
-            color: var(--secondary);
+        .highlight {
+            font-weight: 600;
+            color: var(--primary);
         }
 
+        /* List styling */
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 0.6rem;
+            position: relative;
+            padding-left: 1.25rem;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Links */
         a {
             color: var(--accent);
             text-decoration: none;
@@ -132,74 +174,17 @@
             opacity: 0.8;
         }
 
-        .intro {
-            margin-bottom: 2rem;
-            max-width: 650px;
-            text-align: justify;
-        }
-
-        .experience {
-            margin-bottom: 3rem;
-            background-color: var(--light-bg);
-            padding: 1rem;
-            border-radius: 8px;
-        }
-
-        .experience-item {
-            margin-bottom: 1rem;
-        }
-
-        .highlight {
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        ul {
-            list-style-type: none;
-            margin-bottom: 1rem;
-        }
-
-        li {
-            margin-bottom: 0.75rem;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        li::before {
-            content: "•";
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-        }
-
-        .links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .link-item {
-            padding: 0.75rem 1.5rem;
-            background-color: var(--light-bg);
-            border-radius: 4px;
-            border: 1px solid var(--border);
-            transition: all 0.2s ease;
-        }
-
-        .link-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-
+        /* Footer */
         footer {
-            margin-top: 3rem;
+            margin-top: 2rem;
             padding-top: 1rem;
             border-top: 1px solid var(--border);
             font-size: 0.9rem;
             color: var(--secondary);
+            grid-column: span 2;
         }
 
+        /* Theme toggle */
         .theme-switch-wrapper {
             position: fixed;
             top: 20px;
@@ -230,34 +215,38 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .layout {
-                grid-template-columns: 1fr;
-            }
-
-            header {
+            .header-container {
                 flex-direction: column;
                 align-items: flex-start;
+                gap: 1rem;
             }
 
-            .profile-photo {
-                margin-top: 1rem;
+            .main-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            .profile-section {
-                order: -1;
-                margin-bottom: 2rem;
-            }
-
-            .profile-links {
+            .sidebar {
                 flex-direction: row;
                 flex-wrap: wrap;
-                justify-content: center;
+                justify-content: flex-start;
+                gap: 0.75rem;
             }
 
-            .profile-link {
-                width: auto;
+            .sidebar-link {
                 padding: 0.5rem 1rem;
+                border: 1px solid var(--border);
+                border-radius: 4px;
+            }
+
+            .experience {
+                grid-column: span 1;
+            }
+
+            footer {
+                grid-column: span 1;
             }
         }
     </style>
@@ -269,14 +258,19 @@
         </button>
     </div>
 
-    <header>
-        <h1>hi, i'm aidana</h1>
+    <!-- Header section with photo and name -->
+    <div class="header-container">
+        <div class="header-text">
+            <h1>hi, i'm aidana</h1>
+        </div>
         <div class="profile-photo">
             <img src="aidana.png" alt="Aidana's photo" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
-    </header>
+    </div>
 
-    <div class="layout">
+    <!-- Main content section -->
+    <div class="main-container">
+        <!-- Introduction section -->
         <section class="intro">
             <p class="highlighted-intro">i work on multi-modal AI experiences, with focus on ambient, ethical, and empathetic computing.</p>
             <p>i care deeply about community, wellbeing, and creative expression.</p>
@@ -284,35 +278,35 @@
             <p>i bring startup scrappiness to building from scratch and researcher thoroughness to understanding what makes users love and actually use novel technology.</p>
         </section>
 
-        <section class="profile-section">
-            <div class="profile-links">
-                <a href="https://linkedin.com/in/aidanad" target="_blank" class="profile-link">linkedin</a>
-                <a href="https://github.com/aida-na" target="_blank" class="profile-link">github</a>
-                <a href="https://open.spotify.com/user/21dzw4z7joeryrdlxpncjvh7a?si=4e9001b0dfe64fec&nd=1&dlsi=c7e21fff693246ff" target="_blank" class="profile-link">listening</a>
-                <a href="https://www.goodreads.com/user/show/94981978-aidana" target="_blank" class="profile-link">reading</a>
-                <a href="mailto:aidana@alum.mit.edu" class="profile-link">email</a>
-                <a href="Aidana_CV_2025_PM.pdf" target="_blank" class="profile-link">CV</a>
-            </div>
+        <!-- Link sidebar -->
+        <section class="sidebar">
+            <a href="https://linkedin.com/in/aidanad" target="_blank" class="sidebar-link">linkedin</a>
+            <a href="https://github.com/aida-na" target="_blank" class="sidebar-link">github</a>
+            <a href="https://open.spotify.com/user/21dzw4z7joeryrdlxpncjvh7a?si=4e9001b0dfe64fec&nd=1&dlsi=c7e21fff693246ff" target="_blank" class="sidebar-link">listening</a>
+            <a href="https://www.goodreads.com/user/show/94981978-aidana" target="_blank" class="sidebar-link">reading</a>
+            <a href="mailto:aidana@alum.mit.edu" class="sidebar-link">email</a>
+            <a href="Aidana_CV_2025_PM.pdf" target="_blank" class="sidebar-link">CV</a>
         </section>
+
+        <!-- Experience section -->
+        <section class="experience">
+            <h2>recently:</h2>
+            <ul>
+                <li>principal product manager at <a href="https://www.linkedin.com/company/radiantgraph/" target="_blank" class="highlight">RadiantGraph</a>, building Health Data Insights Engine, voice AI agents and genAI marketing tools for personalization in healthcare</li>
+                
+                <li><span class="highlight">senior product manager at <a href="https://iyo.audio" target="_blank">IYO</a></span>, Google X Moonshot Factory spin-off building <span class="highlight">AI audio computer</span> + audioOS platform. watch our <a href="https://www.ted.com/talks/jason_rugolo_welcome_to_the_world_of_audio_computers?language=en" target="_blank">TED talk</a></li>
+                
+                <li><span class="highlight">graduate researcher at <a href="https://www.media.mit.edu" target="_blank">MIT Media Lab</a></span>, Affective Computing Group + Weill Cornell Medical working on <span class="highlight">AI for empathy in healthcare</span>, read more <a href="https://dspace.mit.edu/handle/1721.1/151692" target="_blank">here</a>, and <a href="https://link.springer.com/article/10.1007/s40596-023-01900-8" target="_blank">here</a></li>
+                
+                <li><span class="highlight">co-founder, product lead at <a href="https://www.projectus.ai/" target="_blank">projectus.ai</a>,</span> building an <span class="highlight">AI coach</span> for emotional intelligence</li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2025 from sunny (not) san francisco</p>
+        </footer>
     </div>
-
-    <section class="experience">
-        <h2>recently:</h2>
-        <ul>
-            <li>principal product manager at <a href="https://www.linkedin.com/company/radiantgraph/" target="_blank" class="highlight">RadiantGraph</a>, building Health Data Insights Engine, voice AI agents and genAI marketing tools for personalization in healthcare</li>
-            
-            <li><span class="highlight">senior product manager at <a href="https://iyo.audio" target="_blank">IYO</a></span>, Google X Moonshot Factory spin-off building <span class="highlight">AI audio computer</span> + audioOS platform. watch our <a href="https://www.ted.com/talks/jason_rugolo_welcome_to_the_world_of_audio_computers?language=en" target="_blank">TED talk</a></li>
-            
-            <li><span class="highlight">graduate researcher at <a href="https://www.media.mit.edu" target="_blank">MIT Media Lab</a></span>, Affective Computing Group + Weill Cornell Medical working on <span class="highlight">AI for empathy in healthcare</span>, read more <a href="https://dspace.mit.edu/handle/1721.1/151692" target="_blank">here</a>, and <a href="https://link.springer.com/article/10.1007/s40596-023-01900-8" target="_blank">here</a></li>
-            
-            <li><span class="highlight">co-founder, product lead at <a href="https://www.projectus.ai/" target="_blank">projectus.ai</a>,</span> building an <span class="highlight">AI coach</span> for emotional intelligence</li>
-        </ul>
-    </section>
-
-
-    <footer>
-        <p>© 2025 from sunny (not) san francisco</p>
-    </footer>
     
     <script>
         const themeToggleBtn = document.getElementById('theme-toggle');
