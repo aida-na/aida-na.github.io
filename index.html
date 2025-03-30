@@ -111,11 +111,10 @@
 </head>
 <body data-theme="light">
     <div class="theme-switch-wrapper">
-        <span class="slider-icon">🌙</span>
-        <label class="theme-switch">
-            <input type="checkbox" id="theme-toggle">
-            <span class="slider"></span>
-        </label>
+        <button class="theme-toggle-btn" id="theme-toggle">
+            <span class="theme-toggle-icon">🌙</span>
+            <span>Dark Mode</span>
+        </button>
     </div>
     
     <header>
@@ -159,34 +158,38 @@
     </footer>
     
     <script>
-        const toggleSwitch = document.getElementById('theme-toggle');
-        const sliderIcon = document.querySelector('.slider-icon');
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleIcon = document.querySelector('.theme-toggle-icon');
+        const themeToggleText = themeToggleBtn.querySelector('span:last-child');
         
         // Check for saved theme preference or use preferred color scheme
         const currentTheme = localStorage.getItem('theme') || 
                             (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         
+        // Set initial theme
         if (currentTheme === 'dark') {
             document.body.setAttribute('data-theme', 'dark');
-            toggleSwitch.checked = true;
-            sliderIcon.textContent = '☀️';
+            themeToggleIcon.textContent = '☀️';
+            themeToggleText.textContent = 'Light Mode';
         }
         
         // Function to switch theme
-        function switchTheme(e) {
-            if (e.target.checked) {
+        function switchTheme() {
+            if (document.body.getAttribute('data-theme') === 'light') {
                 document.body.setAttribute('data-theme', 'dark');
                 localStorage.setItem('theme', 'dark');
-                sliderIcon.textContent = '☀️';
+                themeToggleIcon.textContent = '☀️';
+                themeToggleText.textContent = 'Light Mode';
             } else {
                 document.body.setAttribute('data-theme', 'light');
                 localStorage.setItem('theme', 'light');
-                sliderIcon.textContent = '🌙';
+                themeToggleIcon.textContent = '🌙';
+                themeToggleText.textContent = 'Dark Mode';
             }
         }
         
         // Event listener
-        toggleSwitch.addEventListener('change', switchTheme);
+        themeToggleBtn.addEventListener('click', switchTheme);
     </script>
 </body>
 </html>
