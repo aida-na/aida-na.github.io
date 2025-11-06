@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aidana daulbayeva</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --border: #e0e0e0;
+            --sidebar-width: 200px;
+            --orange: #D2691E;
+            --pink: #E91E8C;
+            --blue: #0066CC;
+            --red: #DC143C;
+            --teal: #008B8B;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            text-transform: lowercase;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            padding: 3rem 2rem;
+            overflow-y: auto;
+        }
+
+        .sidebar-name {
+            font-weight: 600;
+            margin-bottom: 3rem;
+            font-size: 1.3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .sidebar-name a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .nav-item a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.2s ease;
+            display: block;
+        }
+
+        .nav-item a:hover {
+            color: var(--text);
+        }
+
+        .nav-item a.active {
+            color: var(--text);
+        }
+
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 1.5rem;
+            left: 1.5rem;
+            z-index: 200;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--text);
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 3rem 3rem 3rem 4rem;
+            max-width: 900px;
+        }
+
+        section {
+            padding: 2rem 0;
+            min-height: 40vh;
+        }
+
+        section:first-of-type {
+            padding-top: 0;
+        }
+
+        .section-header {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        /* About Section */
+        .about-intro {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .about-intro p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Work Items */
+        .work-list {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .work-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .work-item .company {
+            font-weight: 400;
+        }
+
+        .work-item .company a {
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .work-item .company a:hover {
+            opacity: 0.7;
+        }
+
+        .work-item .role {
+            color: var(--text);
+        }
+
+        .work-item .description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Color classes for companies */
+        .color-orange { color: var(--orange); }
+        .color-pink { color: var(--pink); }
+        .color-blue { color: var(--blue); }
+        .color-red { color: var(--red); }
+        .color-teal { color: var(--teal); }
+
+        /* Divider */
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+
+        /* Speaking & Writing */
+        .content-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .content-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .content-item .title {
+            font-weight: 400;
+        }
+
+        .content-item .title a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .content-item .title a:hover {
+            text-decoration: underline;
+        }
+
+        .content-item .meta {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .content-item .description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Connect Section */
+        .connect-text {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--text);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                background: var(--bg);
+                border-right: 1px solid var(--border);
+                z-index: 150;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 5rem 2rem 2rem 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .main-content {
+                padding: 5rem 1.5rem 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-name">
+            <a href="#about">aidana daulbayeva</a>
+        </div>
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#about" class="nav-link">about</a></li>
+                <li class="nav-item"><a href="#work" class="nav-link">work</a></li>
+                <li class="nav-item"><a href="#experience" class="nav-link">experience</a></li>
+                <li class="nav-item"><a href="#speaking" class="nav-link">speaking & writing</a></li>
+                <li class="nav-item"><a href="#research" class="nav-link">research</a></li>
+                <li class="nav-item"><a href="#community" class="nav-link">community</a></li>
+                <li class="nav-item"><a href="#connect" class="nav-link">connect</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- About Section -->
+        <section id="about">
+            <div class="about-intro">
+                <p>i build products and communities where technology meets human flourishing.</p>
+                <p>currently building in AI for education and health, grounded in a decade of product work and research in microelectronics and in AI. i've commercialized research twice, shipped products to 30M+ users.</p>
+                <p>i've spent equal time building infrastructure for others: led MIT's Brazil incubator, established hackathons and accelerators in Kazakhstan, brought startup ecosystems to underserved regions.</p>
+                <p>the pattern: notice what's missing, build the bridge, empower others to cross it. the work is as much about wellbeing and community as it is about code and metrics.</p>
+            </div>
+        </section>
+
+        <!-- Work Section -->
+        <section id="work">
+            <div class="section-header">current</div>
+            <div class="work-list">
+                <div class="work-item">
+                    <div class="company color-orange">
+                        <a href="https://radiantgraph.com/" target="_blank">radiantgraph</a>
+                    </div>
+                    <div class="role">principal product manager</div>
+                    <div class="description">building voice AI agents and genAI marketing tools for personalization in healthcare.</div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="section-header">previous</div>
+            <div class="work-list">
+                <div class="work-item">
+                    <div class="company color-pink">
+                        <a href="https://www.ted.com/talks/jason_rugolo_welcome_to_the_world_of_audio_computers?language=en" target="_blank">iyo</a>
+                    </div>
+                    <div class="role">senior product manager</div>
+                    <div class="description">built AI audio computer + audioOS platform at google X spin-off.</div>
+                </div>
+
+                <div class="work-item">
+                    <div class="company color-blue">
+                        <a href="https://link.springer.com/article/10.1007/s40596-023-01900-8" target="_blank">mit media lab</a>
+                    </div>
+                    <div class="role">researcher</div>
+                    <div class="description">affective computing group + weill cornell medicine. AI for mental health applications.</div>
+                </div>
+
+                <div class="work-item">
+                    <div class="company color-red">
+                        <a href="https://www.projectus.ai/" target="_blank">projectus.ai</a>
+                    </div>
+                    <div class="role">co-founder, product lead</div>
+                    <div class="description">building an AI coach for emotional intelligence.</div>
+                </div>
+
+                <div class="work-item">
+                    <div class="company color-teal">
+                        mit brazil incubator
+                    </div>
+                    <div class="role">program director</div>
+                    <div class="description">led MIT's flagship incubator in brazil, supporting early-stage startups.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <div class="work-list">
+                <div class="work-item">
+                    <div class="company">radiantgraph</div>
+                    <div class="role">principal product manager</div>
+                    <div class="description">2024 - present. leading product strategy for voice AI agents and generative AI marketing tools focused on personalization in healthcare. managing cross-functional teams and defining roadmap for AI-powered personalization.</div>
+                </div>
+
+                <div class="work-item">
+                    <div class="company">iyo (google X spin-off)</div>
+                    <div class="role">senior product manager</div>
+                    <div class="description">2022 - 2024. built AI audio computer and audioOS platform, shipping innovative products to enhance human-computer interaction through audio. led 0-to-1 product development.</div>
+                </div>
+
+                <div class="work-item">
+                    <div class="company">mit media lab & weill cornell medicine</div>
+                    <div class="role">researcher</div>
+                    <div class="description">2020 - 2022. conducted research at the intersection of affective computing and clinical applications, focusing on AI for mental health diagnostics and treatment.</div>
+                </div>
+
+                <div class="work-item">
+                    <div class="company">projectus.ai</div>
+                    <div class="role">co-founder & product lead</div>
+                    <div class="description">2021 - 2023. built an AI coach for emotional intelligence, helping users develop self-awareness and interpersonal skills. led product from conception to launch.</div>
+                </div>
+
+                <div class="work-item">
+                    <div class="company">mit brazil incubator</div>
+                    <div class="role">program director</div>
+                    <div class="description">2019 - 2021. led MIT's flagship incubator in brazil, mentored 50+ startups, established partnerships with local accelerators.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Speaking & Writing Section -->
+        <section id="speaking">
+            <div class="content-list">
+                <div class="content-item">
+                    <div class="title">building AI products that actually help people</div>
+                    <div class="meta">talk · tech conference 2024</div>
+                    <div class="description">exploring the intersection of product management, AI development, and human-centered design in healthcare applications.</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">from research to product: commercializing AI innovation</div>
+                    <div class="meta">article · medium · 2023</div>
+                    <div class="description">lessons learned from successfully bringing AI research to market and scaling to millions of users.</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">building startup ecosystems in emerging markets</div>
+                    <div class="meta">panel · startup week 2023</div>
+                    <div class="description">insights from leading MIT's brazil incubator and establishing accelerators in central asia.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research">
+            <div class="content-list">
+                <div class="content-item">
+                    <div class="title">
+                        <a href="https://link.springer.com/article/10.1007/s40596-023-01900-8" target="_blank">leveraging machine learning for mental health applications</a>
+                    </div>
+                    <div class="meta">academic psychiatry · springer · 2023</div>
+                    <div class="description">research on applying machine learning to improve mental health diagnostics and treatment outcomes.</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">microelectronics and AI integration</div>
+                    <div class="meta">conference paper · 2021</div>
+                    <div class="description">exploring the convergence of microelectronics research and artificial intelligence for next-generation computing.</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">affective computing for healthcare</div>
+                    <div class="meta">mit media lab · 2022</div>
+                    <div class="description">research on emotion recognition and affective computing applications in clinical settings.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community">
+            <div class="content-list">
+                <div class="content-item">
+                    <div class="title">mit brazil incubator</div>
+                    <div class="meta">program director · 2019-2021</div>
+                    <div class="description">led MIT's flagship incubator in brazil, supporting early-stage startups and fostering innovation in latin america. mentored founders and helped build sustainable startup infrastructure.</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">kazakhstan startup ecosystem</div>
+                    <div class="meta">founder · 2018-2020</div>
+                    <div class="description">established the first hackathons and startup accelerators in kazakhstan, bringing entrepreneurship education and resources to an underserved region. trained hundreds of founders and developers.</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">tech for good initiatives</div>
+                    <div class="meta">advisor & mentor · ongoing</div>
+                    <div class="description">active mentor and advisor for startups working on social impact, particularly in education, health, and accessibility. focus on helping mission-driven founders build sustainable, scalable solutions.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connect Section -->
+        <section id="connect">
+            <div class="connect-text">
+                let's connect. i'm always happy to chat about AI, product, building ecosystems, or just say hello.
+            </div>
+            <div class="social-links">
+                <a href="Aidana_CV_2025_PM.pdf" target="_blank">cv</a>
+                <a href="https://linkedin.com/in/aidanad" target="_blank">linkedin</a>
+                <a href="https://github.com/aida-na" target="_blank">github</a>
+                <a href="mailto:aidana@alum.mit.edu">email</a>
+                <a href="https://open.spotify.com/user/21dzw4z7joeryrdlxpncjvh7a?si=4e9001b0dfe64fec&nd=1&dlsi=c7e21fff693246ff" target="_blank">listening</a>
+                <a href="https://www.goodreads.com/user/show/94981978-aidana" target="_blank">reading</a>
+            </div>
+        </section>
+
+        <footer>
+            <p class="footer-text">aidana daulbayeva © 2025 from sunny (not) san francisco</p>
+        </footer>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        // Close menu when clicking a link on mobile
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 968) {
+                    document.getElementById('sidebar').classList.remove('active');
+                }
+            });
+        });
+
+        // Active section highlighting on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function highlightNavigation() {
+            let scrollY = window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightNavigation);
+        window.addEventListener('load', highlightNavigation);
+    </script>
+</body>
+</html>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        // Close menu when clicking a link on mobile
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 968) {
+                    document.getElementById('sidebar').classList.remove('active');
+                }
+            });
+        });
+
+        // Active section highlighting on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function highlightNavigation() {
+            let scrollY = window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightNavigation);
+        window.addEventListener('load', highlightNavigation);
+    </script>
+</body>
+</html>
