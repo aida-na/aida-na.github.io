@@ -18,9 +18,9 @@
             --text-light: #999999;
             --border: #e0e0e0;
             --sidebar-width: 200px;
-            --orange: #FFB085;
-            --purple: #C8B8DB;
-            --green: #A8E6A3;
+            --orange: #d77946;
+            --purple: #916fba;
+            --green: #62935e;
         }
 
         body {
@@ -108,7 +108,7 @@
         /* Main Content */
         .main-content {
             margin-left: var(--sidebar-width);
-            padding: 3rem 4rem 3rem 4rem;
+            padding: 3rem var(--sidebar-width) 3rem 4rem;
             max-width: none;
             width: calc(100vw - var(--sidebar-width));
         }
@@ -121,6 +121,11 @@
 
         #connect {
             min-height: auto;
+        }
+
+        #education {
+            min-height: auto;
+            padding: 1rem 0;
         }
 
         section:first-of-type {
@@ -159,7 +164,7 @@
             font-weight: 500;
         }
 
-        #speaking-awards .section-header {
+        #speaking-recognition .section-header {
             color: var(--purple);
             font-weight: 500;
         }
@@ -170,7 +175,7 @@
         }
 
         #education .section-header {
-            color: var(--orange);
+            color: var(--purple);
             font-style: italic;
             font-weight: 500;
         }
@@ -188,6 +193,34 @@
 
         #experience + section {
             border-top: none;
+        }
+
+        #community .content-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        #community .content-item {
+            border-left: 2px solid #f0f0f0;
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #community .role {
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 968px) {
+            #community .content-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #community .content-list {
+                grid-template-columns: 1fr;
+            }
         }
 
         #research .content-item {
@@ -220,6 +253,25 @@
             border: 1px solid var(--border);
             border-radius: 0.5rem;
             padding: 1.5rem;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 0.25rem;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .project-text {
+            flex: 1;
         }
 
         /* Better grid on larger screens */
@@ -449,13 +501,13 @@
         /* Large screen optimization */
         @media (min-width: 1400px) {
             .main-content {
-                padding: 3rem 6rem 3rem 4rem;
+                padding: 3rem var(--sidebar-width) 3rem 4rem;
             }
         }
 
         @media (min-width: 1800px) {
             .main-content {
-                padding: 3rem 8rem 3rem 4rem;
+                padding: 3rem var(--sidebar-width) 3rem 4rem;
             }
         }
     </style>
@@ -479,7 +531,7 @@
                 <li class="nav-item"><a href="#projects" class="nav-link">selected projects</a></li>
                 <li class="nav-item"><a href="#experience" class="nav-link">experience</a></li>
                 <li class="nav-item"><a href="#research-writing" class="nav-link">research & writing</a></li>
-                <li class="nav-item"><a href="#speaking-awards" class="nav-link">speaking & awards</a></li>
+                <li class="nav-item"><a href="#speaking-recognition" class="nav-link">speaking & recognition</a></li>
                 <li class="nav-item"><a href="#community" class="nav-link">community</a></li>
                 <li class="nav-item"><a href="#connect" class="nav-link">connect</a></li>
             </ul>
@@ -504,43 +556,73 @@
             <div class="section-header">selected projects (more coming soon)</div>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="company">
-                        AI career mentor for professional growth & mobility
+                    <div class="project-header">
+                        <img src="1.png" alt="Project image" class="project-image">
+                        <div class="project-text">
+                            <div class="company">
+                                AI career mentor for professional growth & mobility
+                            </div>
+                        </div>
                     </div>
                     <div class="role">for Workera, Andrew Ng's company</div>
                 </div>
 
                 <div class="project-card">
-                    <div class="company">
-                        voice AI agents & studio for healthcare operations & patient engagement
+                    <div class="project-header">
+                        <img src="2.png" alt="Project image" class="project-image">
+                        <div class="project-text">
+                            <div class="company">
+                                voice AI agents & studio for healthcare operations & patient engagement
+                            </div>
+                        </div>
                     </div>
-                    <div class="role">for RadiantGraph (deployed at CVS Health & Blue Shield)</div>
+                    <div class="role">for RadiantGraph, deployed at CVS Health & Blue Shield</div>
                 </div>
 
                 <div class="project-card">
-                    <div class="company">
-                        voice AI assistant & developer platform for audio wearable
+                    <div class="project-header">
+                        <img src="3.png" alt="Project image" class="project-image">
+                        <div class="project-text">
+                            <div class="company">
+                                voice AI assistant & developer platform for audio wearable
+                            </div>
+                        </div>
                     </div>
-                    <div class="role">for iyo, Google X spinoff (presented at TED)</div>
+                    <div class="role">for iyo, Google X spinoff, presented at TED</div>
                 </div>
 
                 <div class="project-card">
-                    <div class="company">
-                        AI empathy coach for physicians & enterprise teams
+                    <div class="project-header">
+                        <img src="4.png" alt="Project image" class="project-image">
+                        <div class="project-text">
+                            <div class="company">
+                                AI empathy coach for physicians & enterprise teams
+                            </div>
+                        </div>
                     </div>
-                    <div class="role">for Medship & Project US (deployed at Weill Cornell Medicine & MIT)</div>
+                    <div class="role">for Medship & Project US, deployed at Weill Cornell Medicine & MIT</div>
                 </div>
 
                 <div class="project-card">
-                    <div class="company">
-                        wearable anxiety tracker & companion app
+                    <div class="project-header">
+                        <img src="5.png" alt="Project image" class="project-image">
+                        <div class="project-text">
+                            <div class="company">
+                                wearable anxiety tracker & companion app
+                            </div>
+                        </div>
                     </div>
                     <div class="role">for Ed Boyden's Neuroengineering class at MIT</div>
                 </div>
 
                 <div class="project-card">
-                    <div class="company">
-                        spatial design patterns & biofeedback research
+                    <div class="project-header">
+                        <img src="6.png" alt="Project image" class="project-image">
+                        <div class="project-text">
+                            <div class="company">
+                                spatial design patterns & biofeedback research
+                            </div>
+                        </div>
                     </div>
                     <div class="role">for Martin Bechthold's class at Harvard Graduate School of Design</div>
                 </div>
@@ -629,10 +711,10 @@
         <section id="education">
             <div class="section-header">education</div>
             <ul class="bullet-list">
-                <li>MSc engineering & management, <span class="highlight">MIT</span></li>
-                <li>BEng electrical engineering & computer science, <span class="highlight">Nazarbayev University</span></li>
-                <li>exchange semester, <span class="highlight">University of Wisconsin-Madison</span></li>
-                <li>university preparatory certificate, <span class="highlight">University College London</span></li>
+                <li>MSc engineering & management, <span style="color: var(--text-secondary);">MIT</span></li>
+                <li>BEng electrical engineering & computer science, <span style="color: var(--text-secondary);">Nazarbayev University</span></li>
+                <li>exchange semester, <span style="color: var(--text-secondary);">University of Wisconsin-Madison</span></li>
+                <li>university preparatory certificate, <span style="color: var(--text-secondary);">University College London</span></li>
             </ul>
         </section>
 
@@ -692,9 +774,9 @@
             </div>
         </section>
 
-        <!-- Speaking & Awards Section -->
-        <section id="speaking-awards">
-            <div class="section-header">speaking & awards</div>
+        <!-- Speaking & Recognition Section -->
+        <section id="speaking-recognition">
+            <div class="section-header">speaking & recognition</div>
             
             <h3 style="margin: 2rem 0 1rem 0; font-size: 1rem; font-weight: 500; color: var(--text-secondary);">speaking</h3>
             <ul class="bullet-list">
@@ -705,13 +787,13 @@
                 <li>SwissNex x Expo, <span class="highlight">Kazakhstan</span> (2017)</li>
             </ul>
 
-            <h3 style="margin: 2rem 0 1rem 0; font-size: 1rem; font-weight: 500; color: var(--text-secondary);">awards & recognition</h3>
+            <h3 style="margin: 2rem 0 1rem 0; font-size: 1rem; font-weight: 500; color: var(--text-secondary);">recognition</h3>
             <ul class="bullet-list">
                 <li>Foundation for Opioid Response Efforts grant, <span class="highlight">$50K</span> (2023)</li>
                 <li>National Science Foundation grant, <span class="highlight">$100K</span> (2022)</li>
                 <li>McKinsey Next Generation Women Leaders (2020)</li>
-                <li>ProductOn, <span class="highlight">winner</span> (2019)</li>
-                <li>Shell Innovation Challenge, <span class="highlight">winner</span> (2017)</li>
+                <li>ProductOn (2019)</li>
+                <li>Shell Innovation Challenge (2017)</li>
                 <li>MIT, <span class="highlight">full ride</span></li>
                 <li>Nazarbayev University, <span class="highlight">full ride</span></li>
                 <li>University College London, <span class="highlight">full ride</span></li>
@@ -722,27 +804,63 @@
         <!-- Community Section -->
         <section id="community">
             <div class="section-header">community</div>
-            <ul class="bullet-list">
-                <li>metaphysical musings bookclub, organizer (2025)</li>
-                <li>Silk Road Innovation Hub, <span class="highlight">mentor</span> (2023-2024)</li>
-                <li>Astana Hub, <span class="highlight">advisor</span> (2023-2024)</li>
-                <li>MISTI Brazil Healthtech Accelerator, product mentor (2022-2023)</li>
-                <li>MIT Global Startup Workshop, head of partnerships (2022)</li>
-                <li>MIT Office of Innovation, program manager (2022)</li>
-                <li>Cross-University Startup Innovators mixer, organizer (2022)</li>
-                <li>Impact Hub, design consultant & mentor (2020-2021)</li>
-                <li>NU Hack, <span class="highlight">co-founder</span> (2016)</li>
-                <li>NU IET, chapter lead (2016-2017)</li>
-            </ul>
+            <div class="content-list">
+                <div class="content-item">
+                    <div class="title">metaphysical musings bookclub</div>
+                    <div class="role">organizer | 2025 | San Francisco, CA</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">Silk Road Innovation Hub</div>
+                    <div class="role">mentor | 2023-2024 | Palo Alto, CA</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">Astana Hub</div>
+                    <div class="role">advisor | 2023-2024 | Kazakhstan</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">MISTI Brazil Healthtech Accelerator</div>
+                    <div class="role">mentor | 2022-2023 | Boston, MA - Brazil</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">MIT Global Startup Workshop</div>
+                    <div class="role">head of partnerships | 2022 | Boston, MA - Georgia</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">MIT Office of Innovation</div>
+                    <div class="role">program manager | 2022 | Boston, MA</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">Cross-University Startup Innovators mixer</div>
+                    <div class="role">organizer | 2022 | Boston, MA</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">Impact Hub</div>
+                    <div class="role">design consultant & mentor | 2020-2021 | EMEA</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">NU Hack</div>
+                    <div class="role">co-founder | 2016 | Kazakhstan</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">IET</div>
+                    <div class="role">chapter lead | 2016-2017 | Kazakhstan</div>
+                </div>
+            </div>
         </section>
 
 
         <!-- Connect Section -->
         <section id="connect">
             <div class="section-header">connect</div>
-            <div class="connect-text">
-                let's connect. i'm always happy to chat about AI, product, building ecosystems, or just say hello.
-            </div>
             <div class="social-links">
                 <a href="Aidana_CV_2025_PM.pdf" target="_blank">cv</a>
                 <a href="https://linkedin.com/in/aidanad" target="_blank">linkedin</a>
