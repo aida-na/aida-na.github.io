@@ -263,6 +263,13 @@
             border: 1px solid var(--border);
             border-radius: 0.5rem;
             padding: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         .project-header {
@@ -480,6 +487,129 @@
             color: var(--text-light);
         }
 
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 0.75rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background: #f5f5f5;
+            color: var(--text);
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 0.75rem 0.75rem 0 0;
+        }
+
+        .modal-content {
+            padding: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .modal-subtitle {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .modal-description {
+            color: var(--text);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .modal-description p {
+            margin-bottom: 0.75rem;
+        }
+
+        .modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .modal-tag {
+            background: #f5f5f5;
+            color: var(--text-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 640px) {
+            .modal {
+                width: 95%;
+                max-height: 90vh;
+            }
+
+            .modal-image {
+                height: 180px;
+            }
+
+            .modal-content {
+                padding: 1rem;
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 968px) {
             .menu-toggle {
@@ -542,11 +672,11 @@
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#about" class="nav-link">about</a></li>
                 <li class="nav-item"><a href="#projects" class="nav-link">selected projects</a></li>
-                <li class="nav-item"><a href="#experience" class="nav-link">experience</a></li>
-                <li class="nav-item"><a href="#research-writing" class="nav-link">research & writing</a></li>
-                <li class="nav-item"><a href="#speaking-recognition" class="nav-link">speaking & recognition</a></li>
-                <li class="nav-item"><a href="#community" class="nav-link">community</a></li>
-                <li class="nav-item"><a href="#connect" class="nav-link">connect</a></li>
+                <li class="nav-item"><a href="more.html#experience" class="nav-link">experience</a></li>
+                <li class="nav-item"><a href="more.html#research-writing" class="nav-link">research & writing</a></li>
+                <li class="nav-item"><a href="more.html#speaking-recognition" class="nav-link">speaking & recognition</a></li>
+                <li class="nav-item"><a href="more.html#community" class="nav-link">community</a></li>
+                <li class="nav-item"><a href="more.html#connect" class="nav-link">connect</a></li>
             </ul>
         </nav>
     </aside>
@@ -568,7 +698,7 @@
         <section id="projects">
             <div class="section-header">selected projects</div>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card" onclick="openModal('workera')">
                     <div class="project-header">
                         <img src="1.png" alt="Project image" class="project-image">
                         <div class="project-text">
@@ -580,7 +710,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" onclick="openModal('radiantgraph')">
                     <div class="project-header">
                         <img src="2.png" alt="Project image" class="project-image">
                         <div class="project-text">
@@ -592,7 +722,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" onclick="openModal('iyo')">
                     <div class="project-header">
                         <img src="3.png" alt="Project image" class="project-image">
                         <div class="project-text">
@@ -604,7 +734,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" onclick="openModal('empathy')">
                     <div class="project-header">
                         <img src="4.png" alt="Project image" class="project-image">
                         <div class="project-text">
@@ -616,7 +746,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" onclick="openModal('anxiety')">
                     <div class="project-header">
                         <img src="5.png" alt="Project image" class="project-image">
                         <div class="project-text">
@@ -628,12 +758,12 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" onclick="openModal('biofeedback')">
                     <div class="project-header">
                         <img src="6.png" alt="Project image" class="project-image">
                         <div class="project-text">
                             <div class="company">
-                                spatial <span class="project-highlight">design patterns & biofeedback</span> research
+                                interface <span class="project-highlight">design patterns & biofeedback</span> research
                             </div>
                             <div class="role">for Martin Bechthold's class at Harvard Graduate School of Design</div>
                         </div>
@@ -642,260 +772,143 @@
             </div>
         </section>
 
-        <!-- Experience Section -->
-        <section id="experience">
-            <div class="section-header">experience</div>
-            <div class="content-list">
-                <div class="content-item">
-                    <div class="title">Workera & Robyn, San Francisco, CA</div>
-                    <div class="role">product strategy consultant | 2025</div>
-                    <div class="description">leading product for AI startups building in learning, wellness, and multimodal systems.</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">RadiantGraph, San Francisco, CA</div>
-                    <div class="role">head of product | 2024 - 2025</div>
-                    <div class="description">voice AI agents and personalization for healthcare engagement.</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">iyo (Google X spinoff), San Francisco, CA</div>
-                    <div class="role">senior product manager | 2023 - 2024</div>
-                    <div class="description">audioOS platform for AI audio wearable.</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">projectus.ai, Cambridge, MA</div>
-                    <div class="role">co-founder & product lead | 2021 - 2023</div>
-                    <div class="description">AI coach for emotional intelligence.</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">MIT Media Lab & Weill Cornell Medicine, Cambridge, MA</div>
-                    <div class="role">graduate researcher | 2021 - 2023</div>
-                    <div class="description">AI empathy models for mental health applications.</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">MIT Sloan School of Management, Cambridge, MA</div>
-                    <div class="role">teaching assistant | 2021 - 2022</div>
-                    <div class="description">assisted Innovating for Impact course.</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">Impact Hub, EMEA</div>
-                    <div class="role">design consultant | 2019 - 2021</div>
-                    <div class="description">designed accelerator programs for Central Asian social entrepreneurs.</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">POWR, San Francisco, CA</div>
-                    <div class="role">growth product manager | 2019 - 2021</div>
-                    <div class="description">Shopify app ecosystem, 10M+ users, acquired by Pluribus.</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">Pinemelon, Kazakhstan & Denver, CO</div>
-                    <div class="role">founding product manager | 2017 - 2019</div>
-                    <div class="description">sustainable online grocery, 0→300 daily orders.</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">s.me Kazakhstan</div>
-                    <div class="role">co-founder | 2017 - 2018</div>
-                    <div class="description">smart metering for residential energy.</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">Kapchagay Solar Power Plant, Kazakhstan</div>
-                    <div class="role">electrical engineering intern | 2014 - 2015</div>
-                    <div class="description">power electronics for utility-scale solar.</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">Power Electronics Research Lab at NU</div>
-                    <div class="role">undergraduate researcher | 2014 - 2016</div>
-                    <div class="description">sustainable power systems research.</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education">
-            <div class="section-header">education</div>
-            <ul class="bullet-list">
-                <li>MSc engineering & management, <span style="color: var(--text-secondary);">MIT</span></li>
-                <li>BEng electrical & computer engineering, <span style="color: var(--text-secondary);">Nazarbayev University</span></li>
-                <li>exchange semester, <span style="color: var(--text-secondary);">University of Wisconsin-Madison</span></li>
-                <li>university preparatory certificate, <span style="color: var(--text-secondary);">University College London</span></li>
-            </ul>
-        </section>
-
-        <!-- Research & Writing Section -->
-        <section id="research-writing">
-            <div class="section-header">research & writing</div>
-            
-            <h3 style="margin: 2rem 0 1rem 0; font-size: 1rem; font-weight: 500; color: var(--text-secondary);">research</h3>
-            <div class="content-list">
-                <div class="content-item">
-                    <div class="title">
-                        <a href="https://link.springer.com/article/10.1007/s40596-023-01900-8" target="_blank">integrating technology into undergraduate medical education: can affective computing help teach empathy?</a>
-                    </div>
-                    <div class="meta">Academic Psychiatry, 2023</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">
-                        <a href="https://dspace.mit.edu/handle/1721.1/151319" target="_blank">behavioral design for emotional intelligence: leveraging affective computing in medical education for improved care for substance use disorders</a>
-                    </div>
-                    <div class="meta">MIT thesis, 2023</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">
-                        <a href="https://ieeexplore.ieee.org/document/7805547" target="_blank">novel voltage target ratios and minimal norm principle for reconfigurable multiphase single- and dual-output switched capacitor converters</a>
-                    </div>
-                    <div class="meta">IET power electronics conference, 2016</div>
-                </div>
-            </div>
-
-            <h3 style="margin: 2rem 0 1rem 0; font-size: 1rem; font-weight: 500; color: var(--text-secondary);">writing</h3>
-            <div class="content-list">
-                <div class="content-item">
-                    <div class="title">
-                        <a href="https://www.linkedin.com/posts/aidanad_why-trust-in-ai-isnt-just-an-interface-problem-activity-7387488070842908672-BAqg?" target="_blank" class="project-highlight">why trust in AI isn't just an interface problem ℑ</a>
-                    </div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">
-                        <a href="https://www.linkedin.com/posts/aidanad_conversation-playground-claude-activity-7361484549710630913-yWbU?" target="_blank" class="project-highlight">AI for becoming better humans? ℨ</a>
-                    </div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">
-                        <a href="https://www.linkedin.com/posts/aidanad_lately-ive-been-sitting-with-two-books-that-activity-7354276521060044800-Uzxu?" target="_blank" class="project-highlight">Gleick vs Harari ℳ</a>
-                    </div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">
-                        <a href="https://www.linkedin.com/posts/aidanad_what-your-ai-says-about-itself-and-why-it-activity-7348819842075893762-2PN0?" target="_blank" class="project-highlight">ask Claude to draw a self-portrait ℬ</a>
-                    </div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">
-                        <a href="https://www.linkedin.com/posts/aidanad_the-consumer-ai-event-that-wasnt-just-came-activity-7344477990912741376-WCMr?" target="_blank" class="project-highlight">the consumer AI event that wasn't ℌ </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Speaking & Recognition Section -->
-        <section id="speaking-recognition">
-            <div class="section-header">speaking & recognition</div>
-            
-            <h3 style="margin: 2rem 0 1rem 0; font-size: 1rem; font-weight: 500; color: var(--text-secondary);">speaking</h3>
-            <ul class="bullet-list">
-                <li>AI + health demo night, <span class="highlight">San Francisco</span> (2025)</li>
-                <li>Berkeley Asia Business Conference, <span class="highlight">San Francisco</span> (2024)</li>
-                <li>American Psychological Association conference, <span class="highlight">New York</span> (2024)</li>
-                <li>GoViral conference, <span class="highlight">Kazakhstan</span> (2021)</li>
-                <li>SwissNex x Expo, <span class="highlight">Kazakhstan</span> (2017)</li>
-            </ul>
-
-            <h3 style="margin: 2rem 0 1rem 0; font-size: 1rem; font-weight: 500; color: var(--text-secondary);">recognition</h3>
-            <ul class="bullet-list">
-                <li>Foundation for Opioid Response Efforts grant, <span class="highlight">$50K</span> (2023)</li>
-                <li>National Science Foundation grant, <span class="highlight">$100K</span> (2022)</li>
-                <li>McKinsey Next Generation Women Leaders (2020)</li>
-                <li>ProductOn (2019)</li>
-                <li>Shell Innovation Challenge (2017)</li>
-                <li>MIT, <span class="highlight">full ride</span></li>
-                <li>Nazarbayev University, <span class="highlight">full ride</span></li>
-                <li>University College London, <span class="highlight">full ride</span></li>
-                <li>University of Wisconsin-Madison, <span class="highlight">full ride</span></li>
-            </ul>
-        </section>
-
-        <!-- Community Section -->
-        <section id="community">
-            <div class="section-header">community</div>
-            <div class="content-list">
-                <div class="content-item">
-                    <div class="title">metaphysical musings bookclub</div>
-                    <div class="role">organizer | 2025 | San Francisco, CA</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">Silk Road Innovation Hub</div>
-                    <div class="role">mentor | 2023-2024 | Palo Alto, CA</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">Astana Hub</div>
-                    <div class="role">advisor | 2023-2024 | Kazakhstan</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">MISTI Brazil Healthtech Accelerator</div>
-                    <div class="role">mentor | 2022-2023 | Boston, MA - Brazil</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">MIT Global Startup Workshop</div>
-                    <div class="role">head of partnerships | 2022 | Boston, MA - Georgia</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">MIT Office of Innovation</div>
-                    <div class="role">program manager | 2022 | Boston, MA</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">Cross-University Startup Innovators mixer</div>
-                    <div class="role">organizer | 2022 | Boston, MA</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">Impact Hub</div>
-                    <div class="role">design consultant & mentor | 2020-2021 | EMEA</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">NU Hack</div>
-                    <div class="role">co-founder | 2016 | Kazakhstan</div>
-                </div>
-
-                <div class="content-item">
-                    <div class="title">IET</div>
-                    <div class="role">chapter lead | 2016-2017 | Kazakhstan</div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Connect Section -->
-        <section id="connect">
-            <div class="section-header">connect</div>
-            <div class="social-links">
-                <a href="https://substack.com/@aidanad" target="_blank">writing</a>
-                <a href="https://www.goodreads.com/user/show/94981978-aidana" target="_blank">reading</a>
-                <a href="https://www.instagram.com/____a.d/" target="_blank">taking photos</a>
-                <a href="https://open.spotify.com/user/21dzw4z7joeryrdlxpncjvh7a?si=4e9001b0dfe64fec&nd=1&dlsi=c7e21fff693246ff" target="_blank">listening</a>
-                <a href="aidana_cv.pdf" target="_blank">cv</a>
-                <a href="https://linkedin.com/in/aidanad" target="_blank">linkedin</a>
-                <a href="https://github.com/aida-na" target="_blank">github</a>
-                <a href="mailto:aidana@alum.mit.edu">email</a>
-            </div>
-        </section>
-
         <footer>
             <p class="footer-text">aidana daulbayeva © 2025 from sunny (not) san francisco</p>
         </footer>
     </main>
+
+    <!-- Project Modals -->
+    <div class="modal-overlay" id="modal-workera" onclick="closeModal(event, 'workera')">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal(event, 'workera')">&times;</button>
+            <img src="1.png" alt="Workera AI Career Mentor" class="modal-image">
+            <div class="modal-content">
+                <div class="modal-title">AI career mentor</div>
+                <div class="modal-subtitle">for Workera, Andrew Ng's company</div>
+                <div class="modal-description">
+                    <p>led product strategy for an AI-powered career mentor designed to help professionals navigate their growth and mobility in the age of AI.</p>
+                    <p>the product provides personalized skill assessments, learning recommendations, and career pathing based on labor market data and individual goals.</p>
+                    <p>focused on making professional development accessible and actionable for enterprise teams and individual learners.</p>
+                </div>
+                <div class="modal-tags">
+                    <span class="modal-tag">product strategy</span>
+                    <span class="modal-tag">AI/ML</span>
+                    <span class="modal-tag">edtech</span>
+                    <span class="modal-tag">career development</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-radiantgraph" onclick="closeModal(event, 'radiantgraph')">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal(event, 'radiantgraph')">&times;</button>
+            <img src="2.png" alt="RadiantGraph Voice AI" class="modal-image">
+            <div class="modal-content">
+                <div class="modal-title">voice AI agents & studio</div>
+                <div class="modal-subtitle">for RadiantGraph, deployed at CVS & Blue Shield</div>
+                <div class="modal-description">
+                    <p>as head of product, built voice AI agents and a no-code studio for healthcare operations and patient engagement.</p>
+                    <p>the platform enables healthcare organizations to deploy conversational AI for appointment scheduling, care navigation, medication adherence, and patient outreach at scale.</p>
+                    <p>shipped to major healthcare enterprises including CVS and Blue Shield, improving patient engagement metrics and operational efficiency.</p>
+                </div>
+                <div class="modal-tags">
+                    <span class="modal-tag">voice AI</span>
+                    <span class="modal-tag">healthcare</span>
+                    <span class="modal-tag">B2B enterprise</span>
+                    <span class="modal-tag">no-code</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-iyo" onclick="closeModal(event, 'iyo')">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal(event, 'iyo')">&times;</button>
+            <img src="3.png" alt="iyo Audio Wearable" class="modal-image">
+            <div class="modal-content">
+                <div class="modal-title">voice AI assistant & audio wearable platform</div>
+                <div class="modal-subtitle">for iyo, Google X spinoff, presented at TED</div>
+                <div class="modal-description">
+                    <p>led product for audioOS, a platform powering AI-first audio wearables with spatial audio, voice assistants, and developer tools.</p>
+                    <p>built the voice AI assistant experience and developer platform that enables third-party apps to integrate with the wearable ecosystem.</p>
+                    <p>the product was showcased at TED, demonstrating the future of ambient computing and always-on AI companions.</p>
+                </div>
+                <div class="modal-tags">
+                    <span class="modal-tag">consumer hardware</span>
+                    <span class="modal-tag">voice AI</span>
+                    <span class="modal-tag">developer platform</span>
+                    <span class="modal-tag">spatial audio</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-empathy" onclick="closeModal(event, 'empathy')">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal(event, 'empathy')">&times;</button>
+            <img src="4.png" alt="AI Empathy Coach" class="modal-image">
+            <div class="modal-content">
+                <div class="modal-title">AI empathy coach</div>
+                <div class="modal-subtitle">for Medship & Project US, deployed at Weill Cornell Medicine & MIT</div>
+                <div class="modal-description">
+                    <p>co-founded and led product for an AI-powered empathy training platform that helps physicians and enterprise teams develop emotional intelligence.</p>
+                    <p>the system uses affective computing to analyze communication patterns and provide real-time feedback on empathetic responses, particularly for difficult conversations in healthcare.</p>
+                    <p>deployed at Weill Cornell Medicine for medical education and at MIT for enterprise team training. published research in Academic Psychiatry on integrating affective computing into medical education.</p>
+                </div>
+                <div class="modal-tags">
+                    <span class="modal-tag">affective computing</span>
+                    <span class="modal-tag">medical education</span>
+                    <span class="modal-tag">emotional intelligence</span>
+                    <span class="modal-tag">research</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-anxiety" onclick="closeModal(event, 'anxiety')">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal(event, 'anxiety')">&times;</button>
+            <img src="5.png" alt="EEG Anxiety Tracker" class="modal-image">
+            <div class="modal-content">
+                <div class="modal-title">wearable anxiety tracker & companion app</div>
+                <div class="modal-subtitle">for Ed Boyden's Neuroengineering class at MIT</div>
+                <div class="modal-description">
+                    <p>created a prototype EEG device designed to study how anxiety manifests in daily life through brainwave patterns.</p>
+                    <p>the project proposed a larger study to understand anxiety signatures in real-world contexts, moving beyond lab settings to capture authentic emotional responses.</p>
+                    <p>developed methods for creating personalized interventions based on individual brainwave feedback, enabling tailored responses to anxiety triggers.</p>
+                </div>
+                <div class="modal-tags">
+                    <span class="modal-tag">EEG</span>
+                    <span class="modal-tag">mental health</span>
+                    <span class="modal-tag">personalization</span>
+                    <span class="modal-tag">neuroengineering</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-biofeedback" onclick="closeModal(event, 'biofeedback')">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal(event, 'biofeedback')">&times;</button>
+            <img src="6.png" alt="Interface Design & Biofeedback Research" class="modal-image">
+            <div class="modal-content">
+                <div class="modal-title">interface design patterns & biofeedback research</div>
+                <div class="modal-subtitle">for Martin Bechthold's class at Harvard Graduate School of Design</div>
+                <div class="modal-description">
+                    <p>designed variations of a language learning app to study how different UI/UX patterns influence learner performance and content recall.</p>
+                    <p>used biofeedback sensors to measure physiological responses while users interacted with different interface designs, identifying which patterns enhanced focus versus caused distraction.</p>
+                    <p>the research explored evidence-based approaches to educational interface design, connecting cognitive load theory with measurable user responses.</p>
+                </div>
+                <div class="modal-tags">
+                    <span class="modal-tag">UI/UX research</span>
+                    <span class="modal-tag">biofeedback</span>
+                    <span class="modal-tag">edtech</span>
+                    <span class="modal-tag">cognitive design</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Mobile menu toggle
@@ -924,7 +937,7 @@
                 const sectionHeight = section.offsetHeight;
                 const sectionTop = section.offsetTop - 100;
                 const sectionId = section.getAttribute('id');
-                
+
                 if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
                     navLinks.forEach(link => {
                         link.classList.remove('active');
@@ -938,6 +951,33 @@
 
         window.addEventListener('scroll', highlightNavigation);
         window.addEventListener('load', highlightNavigation);
+
+        // Modal functions
+        function openModal(projectId) {
+            const modal = document.getElementById('modal-' + projectId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(event, projectId) {
+            const modal = document.getElementById('modal-' + projectId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+                document.body.style.overflow = '';
+            }
+        });
     </script>
 </body>
 </html>

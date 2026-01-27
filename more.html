@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZVF15NBB4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-7ZVF15NBB4');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aidana daulbayeva - more</title>
+    <link rel="icon" type="image/jpeg" href="ad.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --border: #e0e0e0;
+            --sidebar-width: 200px;
+            --orange: #d77946;
+            --purple: #916fba;
+            --green: #62935e;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            text-transform: lowercase;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            padding: 3rem 2rem;
+            overflow-y: auto;
+        }
+
+        .sidebar-name {
+            font-weight: 600;
+            margin-bottom: 3rem;
+            font-size: 1.3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .sidebar-name a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .nav-item a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.2s ease;
+            display: block;
+        }
+
+        .nav-item a:hover {
+            color: var(--text);
+        }
+
+        .nav-item a.active {
+            color: var(--text);
+        }
+
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 1.5rem;
+            left: 1.5rem;
+            z-index: 200;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--text);
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 3rem var(--sidebar-width) 3rem 4rem;
+            max-width: none;
+            width: calc(100vw - var(--sidebar-width));
+        }
+
+        section {
+            padding: 2rem 0;
+            min-height: 40vh;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        #connect {
+            min-height: auto;
+        }
+
+        #education {
+            min-height: auto;
+            padding: 1rem 0;
+        }
+
+        section:first-of-type {
+            padding-top: 0;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-header {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        /* Minimal section variations - Pastel color scheme for all sections */
+        #experience .section-header {
+            color: var(--green);
+            font-weight: 500;
+        }
+
+        #research-writing .section-header {
+            color: var(--orange);
+            font-weight: 500;
+        }
+
+        #speaking-recognition .section-header {
+            color: var(--purple);
+            font-weight: 500;
+        }
+
+        #community .section-header {
+            color: var(--green);
+            font-weight: 500;
+        }
+
+        #education .section-header {
+            color: var(--purple);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        #connect .section-header {
+            color: var(--purple);
+            font-weight: 500;
+        }
+
+        #experience {
+            padding-left: 1rem;
+            border-left: 2px solid #f0f0f0;
+            border-bottom: none;
+        }
+
+        #experience + section {
+            border-top: none;
+        }
+
+        #community .content-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        #community .content-item {
+            border-left: 2px solid #f0f0f0;
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #community .role {
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 968px) {
+            #community .content-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #community .content-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        #research .content-item {
+            border-left: 3px solid #f0f0f0;
+            padding-left: 1rem;
+        }
+
+        .project-highlight {
+            font-weight: 600;
+        }
+
+        /* Connect Section */
+        .connect-text {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--text);
+            text-decoration: underline;
+        }
+
+        /* Writing */
+        .content-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .content-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        /* Bullet list styling for compact sections */
+        .bullet-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .bullet-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--text);
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: var(--text-secondary);
+        }
+
+        .content-item .title {
+            font-weight: 400;
+        }
+
+        .content-item .title a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .content-item .title a:hover {
+            text-decoration: underline;
+        }
+
+        .content-item .meta {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .content-item .description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .content-item .role {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 0;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                background: var(--bg);
+                border-right: 1px solid var(--border);
+                z-index: 150;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 5rem 2rem 2rem 2rem;
+                width: 100vw;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .main-content {
+                padding: 5rem 1.5rem 2rem 1.5rem;
+            }
+        }
+
+        /* Large screen optimization */
+        @media (min-width: 1400px) {
+            .main-content {
+                padding: 3rem var(--sidebar-width) 3rem 4rem;
+            }
+        }
+
+        @media (min-width: 1800px) {
+            .main-content {
+                padding: 3rem var(--sidebar-width) 3rem 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-name">
+            <a href="index.html">aidana daulbayeva</a>
+        </div>
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html#about" class="nav-link">about</a></li>
+                <li class="nav-item"><a href="index.html#projects" class="nav-link">selected projects</a></li>
+                <li class="nav-item"><a href="#experience" class="nav-link">experience</a></li>
+                <li class="nav-item"><a href="#research-writing" class="nav-link">research & writing</a></li>
+                <li class="nav-item"><a href="#speaking-recognition" class="nav-link">speaking & recognition</a></li>
+                <li class="nav-item"><a href="#community" class="nav-link">community</a></li>
+                <li class="nav-item"><a href="#connect" class="nav-link">connect</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Experience Section -->
+        <section id="experience">
+            <div class="section-header">experience</div>
+            <div class="content-list">
+                <div class="content-item">
+                    <div class="title">Workera & Robyn, San Francisco, CA</div>
+                    <div class="role">product strategy consultant | 2025</div>
+                    <div class="description">leading product for AI startups building in learning, wellness, and multimodal systems.</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">RadiantGraph, San Francisco, CA</div>
+                    <div class="role">head of product | 2024 - 2025</div>
+                    <div class="description">voice AI agents and personalization for healthcare engagement.</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">iyo (Google X spinoff), San Francisco, CA</div>
+                    <div class="role">senior product manager | 2023 - 2024</div>
+                    <div class="description">audioOS platform for AI audio wearable.</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">projectus.ai, Cambridge, MA</div>
+                    <div class="role">co-founder & product lead | 2021 - 2023</div>
+                    <div class="description">AI coach for emotional intelligence.</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">MIT Media Lab & Weill Cornell Medicine, Cambridge, MA</div>
+                    <div class="role">graduate researcher | 2021 - 2023</div>
+                    <div class="description">AI empathy models for mental health applications.</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">MIT Sloan School of Management, Cambridge, MA</div>
+                    <div class="role">teaching assistant | 2021 - 2022</div>
+                    <div class="description">assisted Innovating for Impact course.</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">Impact Hub, EMEA</div>
+                    <div class="role">design consultant | 2019 - 2021</div>
+                    <div class="description">designed accelerator programs for Central Asian social entrepreneurs.</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">POWR, San Francisco, CA</div>
+                    <div class="role">growth product manager | 2019 - 2021</div>
+                    <div class="description">Shopify app ecosystem, 10M+ users, acquired by Pluribus.</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">Pinemelon, Kazakhstan & Denver, CO</div>
+                    <div class="role">founding product manager | 2017 - 2019</div>
+                    <div class="description">sustainable online grocery, 0→300 daily orders.</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">s.me Kazakhstan</div>
+                    <div class="role">co-founder | 2017 - 2018</div>
+                    <div class="description">smart metering for residential energy.</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">Kapchagay Solar Power Plant, Kazakhstan</div>
+                    <div class="role">electrical engineering intern | 2014 - 2015</div>
+                    <div class="description">power electronics for utility-scale solar.</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">Power Electronics Research Lab at NU</div>
+                    <div class="role">undergraduate researcher | 2014 - 2016</div>
+                    <div class="description">sustainable power systems research.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <div class="section-header">education</div>
+            <ul class="bullet-list">
+                <li>MSc engineering & management, <span style="color: var(--text-secondary);">MIT</span></li>
+                <li>BEng electrical & computer engineering, <span style="color: var(--text-secondary);">Nazarbayev University</span></li>
+                <li>exchange semester, <span style="color: var(--text-secondary);">University of Wisconsin-Madison</span></li>
+                <li>university preparatory certificate, <span style="color: var(--text-secondary);">University College London</span></li>
+            </ul>
+        </section>
+
+        <!-- Research & Writing Section -->
+        <section id="research-writing">
+            <div class="section-header">research & writing</div>
+
+            <h3 style="margin: 2rem 0 1rem 0; font-size: 1rem; font-weight: 500; color: var(--text-secondary);">research</h3>
+            <div class="content-list">
+                <div class="content-item">
+                    <div class="title">
+                        <a href="https://link.springer.com/article/10.1007/s40596-023-01900-8" target="_blank">integrating technology into undergraduate medical education: can affective computing help teach empathy?</a>
+                    </div>
+                    <div class="meta">Academic Psychiatry, 2023</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">
+                        <a href="https://dspace.mit.edu/handle/1721.1/151319" target="_blank">behavioral design for emotional intelligence: leveraging affective computing in medical education for improved care for substance use disorders</a>
+                    </div>
+                    <div class="meta">MIT thesis, 2023</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">
+                        <a href="https://ieeexplore.ieee.org/document/7805547" target="_blank">novel voltage target ratios and minimal norm principle for reconfigurable multiphase single- and dual-output switched capacitor converters</a>
+                    </div>
+                    <div class="meta">IET power electronics conference, 2016</div>
+                </div>
+            </div>
+
+            <h3 style="margin: 2rem 0 1rem 0; font-size: 1rem; font-weight: 500; color: var(--text-secondary);">writing</h3>
+            <div class="content-list">
+                <div class="content-item">
+                    <div class="title">
+                        <a href="https://www.linkedin.com/posts/aidanad_why-trust-in-ai-isnt-just-an-interface-problem-activity-7387488070842908672-BAqg?" target="_blank" class="project-highlight">why trust in AI isn't just an interface problem ℑ</a>
+                    </div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">
+                        <a href="https://www.linkedin.com/posts/aidanad_conversation-playground-claude-activity-7361484549710630913-yWbU?" target="_blank" class="project-highlight">AI for becoming better humans? ℨ</a>
+                    </div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">
+                        <a href="https://www.linkedin.com/posts/aidanad_lately-ive-been-sitting-with-two-books-that-activity-7354276521060044800-Uzxu?" target="_blank" class="project-highlight">Gleick vs Harari ℳ</a>
+                    </div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">
+                        <a href="https://www.linkedin.com/posts/aidanad_what-your-ai-says-about-itself-and-why-it-activity-7348819842075893762-2PN0?" target="_blank" class="project-highlight">ask Claude to draw a self-portrait ℬ</a>
+                    </div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">
+                        <a href="https://www.linkedin.com/posts/aidanad_the-consumer-ai-event-that-wasnt-just-came-activity-7344477990912741376-WCMr?" target="_blank" class="project-highlight">the consumer AI event that wasn't ℌ </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Speaking & Recognition Section -->
+        <section id="speaking-recognition">
+            <div class="section-header">speaking & recognition</div>
+
+            <h3 style="margin: 2rem 0 1rem 0; font-size: 1rem; font-weight: 500; color: var(--text-secondary);">speaking</h3>
+            <ul class="bullet-list">
+                <li>AI + health demo night, <span class="highlight">San Francisco</span> (2025)</li>
+                <li>Berkeley Asia Business Conference, <span class="highlight">San Francisco</span> (2024)</li>
+                <li>American Psychological Association conference, <span class="highlight">New York</span> (2024)</li>
+                <li>GoViral conference, <span class="highlight">Kazakhstan</span> (2021)</li>
+                <li>SwissNex x Expo, <span class="highlight">Kazakhstan</span> (2017)</li>
+            </ul>
+
+            <h3 style="margin: 2rem 0 1rem 0; font-size: 1rem; font-weight: 500; color: var(--text-secondary);">recognition</h3>
+            <ul class="bullet-list">
+                <li>Foundation for Opioid Response Efforts grant, <span class="highlight">$50K</span> (2023)</li>
+                <li>National Science Foundation grant, <span class="highlight">$100K</span> (2022)</li>
+                <li>McKinsey Next Generation Women Leaders (2020)</li>
+                <li>ProductOn (2019)</li>
+                <li>Shell Innovation Challenge (2017)</li>
+                <li>MIT, <span class="highlight">full ride</span></li>
+                <li>Nazarbayev University, <span class="highlight">full ride</span></li>
+                <li>University College London, <span class="highlight">full ride</span></li>
+                <li>University of Wisconsin-Madison, <span class="highlight">full ride</span></li>
+            </ul>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community">
+            <div class="section-header">community</div>
+            <div class="content-list">
+                <div class="content-item">
+                    <div class="title">metaphysical musings bookclub</div>
+                    <div class="role">organizer | 2025 | San Francisco, CA</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">Silk Road Innovation Hub</div>
+                    <div class="role">mentor | 2023-2024 | Palo Alto, CA</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">Astana Hub</div>
+                    <div class="role">advisor | 2023-2024 | Kazakhstan</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">MISTI Brazil Healthtech Accelerator</div>
+                    <div class="role">mentor | 2022-2023 | Boston, MA - Brazil</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">MIT Global Startup Workshop</div>
+                    <div class="role">head of partnerships | 2022 | Boston, MA - Georgia</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">MIT Office of Innovation</div>
+                    <div class="role">program manager | 2022 | Boston, MA</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">Cross-University Startup Innovators mixer</div>
+                    <div class="role">organizer | 2022 | Boston, MA</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">Impact Hub</div>
+                    <div class="role">design consultant & mentor | 2020-2021 | EMEA</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">NU Hack</div>
+                    <div class="role">co-founder | 2016 | Kazakhstan</div>
+                </div>
+
+                <div class="content-item">
+                    <div class="title">IET</div>
+                    <div class="role">chapter lead | 2016-2017 | Kazakhstan</div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Connect Section -->
+        <section id="connect">
+            <div class="section-header">connect</div>
+            <div class="social-links">
+                <a href="https://substack.com/@aidanad" target="_blank">writing</a>
+                <a href="https://www.goodreads.com/user/show/94981978-aidana" target="_blank">reading</a>
+                <a href="https://www.instagram.com/____a.d/" target="_blank">taking photos</a>
+                <a href="https://open.spotify.com/user/21dzw4z7joeryrdlxpncjvh7a?si=4e9001b0dfe64fec&nd=1&dlsi=c7e21fff693246ff" target="_blank">listening</a>
+                <a href="aidana_cv.pdf" target="_blank">cv</a>
+                <a href="https://linkedin.com/in/aidanad" target="_blank">linkedin</a>
+                <a href="https://github.com/aida-na" target="_blank">github</a>
+                <a href="mailto:aidana@alum.mit.edu">email</a>
+            </div>
+        </section>
+
+        <footer>
+            <p class="footer-text">aidana daulbayeva © 2025 from sunny (not) san francisco</p>
+        </footer>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        // Close menu when clicking a link on mobile
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 968) {
+                    document.getElementById('sidebar').classList.remove('active');
+                }
+            });
+        });
+
+        // Active section highlighting on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function highlightNavigation() {
+            let scrollY = window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightNavigation);
+        window.addEventListener('load', highlightNavigation);
+    </script>
+</body>
+</html>
