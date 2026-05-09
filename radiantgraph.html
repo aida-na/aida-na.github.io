@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aidana daulbayeva · radiantgraph</title>
+    <link rel="icon" type="image/jpeg" href="ad.jpg">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #ffffff; --text: #000000; --text-secondary: #666666;
+            --text-light: #999999; --border: #e8e8e8;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg); color: var(--text);
+            line-height: 1.7; -webkit-font-smoothing: antialiased;
+            text-transform: lowercase;
+        }
+        .page { max-width: 680px; margin: 0 auto; padding: 3rem 2rem 5rem 2rem; }
+        .back {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            color: var(--text-light); text-decoration: none; font-size: 0.88rem;
+            margin-bottom: 2.5rem; transition: color 0.2s;
+        }
+        .back:hover { color: var(--text); }
+        .project-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.4rem; }
+        .logo-box {
+            width: 48px; height: 48px; border-radius: 10px;
+            background: #f5f5f5; border: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; color: var(--text-light); flex-shrink: 0;
+        }
+        .project-name { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.02em; }
+        .project-meta { font-size: 0.88rem; color: var(--text-light); margin-bottom: 1rem; }
+        .project-subtitle { font-size: 1rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6; }
+        .screenshots { margin: 2rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .screenshots img { width: 100%; border-radius: 8px; border: 1px solid var(--border); }
+        .body-text { font-size: 0.95rem; line-height: 1.85; color: var(--text); margin-bottom: 2rem; }
+        .body-text p { margin-bottom: 1.1rem; }
+        .highlights-label {
+            font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+            text-transform: uppercase; color: var(--text-light); margin-bottom: 0.85rem;
+        }
+        .highlights { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+        .highlights li {
+            font-size: 0.9rem; color: var(--text-secondary);
+            padding-left: 1.1rem; position: relative; line-height: 1.5;
+        }
+        .highlights li::before { content: '–'; position: absolute; left: 0; color: var(--text-light); }
+        .highlights li strong { color: var(--text); font-weight: 500; }
+        @media (max-width: 640px) {
+            .page { padding: 2rem 1.25rem 4rem 1.25rem; }
+            .screenshots { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <a href="index.html" class="back">← aidana daulbayeva</a>
+
+    <div class="project-header">
+        <div class="logo-box">rg</div>
+        <div class="project-name">radiantgraph</div>
+    </div>
+    <div class="project-meta">first product hire · 2024–2025</div>
+    <div class="project-subtitle">full-stack AI engagement platform for health plans and health services. built product culture, roadmap, and GTM from zero.</div>
+
+    <!-- screenshots placeholder: <div class="screenshots"><img src="imgs/rg_1.png"><img src="imgs/rg_2.png"></div> -->
+
+    <div class="body-text">
+        <p>when i joined, the company had no product. it had clients, engineers, and a ceo with a vision — but the day-to-day was service work: csvs, custom integrations, one-off decks. smart people doing unsustainable things.</p>
+
+        <p>i was the first product hire. no roadmap, no process, no structure. i started by building those before building anything else — sprints, syncs, cross-functional relationships, a working layer between the ceo's vision and what engineering could actually ship. got CS a yes/no framework for what to sell. got sales something they could show.</p>
+
+        <p>the vision took shape through interviews, market research, and a lot of back-and-forth with stakeholders. what emerged: a full-stack, multi-modal AI campaign platform — combining something like braze and hightouch, purpose-built for healthcare. we confirmed it with early design partners, decomposed it into parts, and started building.</p>
+
+        <p>the first real product was a population analytics dashboard. a concrete, shippable thing that closed a real pain point without needing the entire platform to exist first. then came the health data engine, smart cohorts, journey builder, spend optimization, content studio.</p>
+
+        <p>in parallel, i made a separate bet: voice. the rest of the platform required clients to hand over significant data early on — and i'd seen that create friction before relationships were warm enough. voice needed less to get started. i found one engineer, and we built from the foundation up: tts, stt, orchestration, prompts, functions, RAG, evals. recorded demos for different use cases. handed them to sales to see what stuck.</p>
+
+        <p>it stuck. we expanded the voice team, brought in a clinical consultant for prompts and evals, and started closing contracts.</p>
+    </div>
+
+    <div class="highlights-label">highlights</div>
+    <ul class="highlights">
+        <li>built product function from zero — <strong>first product hire</strong>, no prior product culture</li>
+        <li>shipped population explorer, HDE dashboard, smart cohorts, journey builder, voice studio</li>
+        <li><strong>$10M new pipeline</strong> across platform and voice; helped close <strong>$5M</strong> with CVS and blue shield</li>
+        <li>equipped sales with prototypes and positioning; gave CS a clear offer framework</li>
+        <li>hired clinical consultant, expanded voice eng team, closed first voice contracts</li>
+        <li>transitioned company from services model to <strong>repeatable software product</strong></li>
+    </ul>
+</div>
+</body>
+</html>

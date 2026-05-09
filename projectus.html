@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aidana daulbayeva · project us</title>
+    <link rel="icon" type="image/jpeg" href="ad.jpg">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #ffffff; --text: #000000; --text-secondary: #666666;
+            --text-light: #999999; --border: #e8e8e8;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg); color: var(--text);
+            line-height: 1.7; -webkit-font-smoothing: antialiased;
+            text-transform: lowercase;
+        }
+        .page { max-width: 680px; margin: 0 auto; padding: 3rem 2rem 5rem 2rem; }
+        .back {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            color: var(--text-light); text-decoration: none; font-size: 0.88rem;
+            margin-bottom: 2.5rem; transition: color 0.2s;
+        }
+        .back:hover { color: var(--text); }
+        .project-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.4rem; }
+        .logo-box {
+            width: 48px; height: 48px; border-radius: 10px;
+            background: #f5f5f5; border: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; color: var(--text-light); flex-shrink: 0;
+        }
+        .project-name { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.02em; }
+        .project-meta { font-size: 0.88rem; color: var(--text-light); margin-bottom: 1rem; }
+        .project-subtitle { font-size: 1rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6; }
+        .screenshots { margin: 2rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .screenshots img { width: 100%; border-radius: 8px; border: 1px solid var(--border); }
+        .body-text { font-size: 0.95rem; line-height: 1.85; color: var(--text); margin-bottom: 2rem; }
+        .body-text p { margin-bottom: 1.1rem; }
+        .highlights-label {
+            font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+            text-transform: uppercase; color: var(--text-light); margin-bottom: 0.85rem;
+        }
+        .highlights { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+        .highlights li {
+            font-size: 0.9rem; color: var(--text-secondary);
+            padding-left: 1.1rem; position: relative; line-height: 1.5;
+        }
+        .highlights li::before { content: '–'; position: absolute; left: 0; color: var(--text-light); }
+        .highlights li strong { color: var(--text); font-weight: 500; }
+        @media (max-width: 640px) {
+            .page { padding: 2rem 1.25rem 4rem 1.25rem; }
+            .screenshots { grid-template-columns: 1fr; }
+        }
+</style>
+</head>
+<body>
+<div class="page">
+    <a href="index.html" class="back">← aidana daulbayeva</a>
+
+    <div class="project-header">
+        <div class="logo-box">us</div>
+        <div class="project-name">project us</div>
+    </div>
+    <div class="project-meta">co-founder & product lead · 2021–2023</div>
+    <div class="project-subtitle">AI communication coach for emotional intelligence. MIT Media Lab spinoff. deployed at Weill Cornell Medicine.</div>
+
+    <!-- screenshots placeholder: <div class="screenshots"><img src="imgs/projectus_1.png"><img src="imgs/projectus_2.png"></div> -->
+
+    <div class="body-text">
+<p>the research started at MIT's affective computing group — building multimodal ML systems to help medical students at cornell reflect on their emotional states during patient interactions, particularly with patients dealing with substance use and mental health.</p>
+<p>my mom has struggled with substances for years. the research was not abstract to me.</p>
+<p>we spun it out, secured NSF funding, acquired the first enterprise customer in six months, and deployed at weill cornell. eventually the co-founder relationship ended — a hard call, made intentionally. the work lives on in the published research and in everything i've built since.</p>
+    </div>
+
+    <div class="highlights-label">highlights</div>
+    <ul class="highlights">
+<li><strong>$500K NSF grant</strong> + $200K foundation for opioid response efforts</li>
+<li>first enterprise customer in 3 months, <strong>85% user satisfaction</strong></li>
+<li>deployed at weill cornell medical</li>
+<li>published: <a href="https://link.springer.com/article/10.1007/s40596-023-01900-8" target="_blank" style="color:var(--text);text-decoration:underline;text-underline-offset:2px;"><em>academic psychiatry</em>, 2023</a></li>
+    </ul>
+</div>
+</body>
+</html>
