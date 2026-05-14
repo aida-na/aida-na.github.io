@@ -14,13 +14,13 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: var(--bg); color: var(--text);
-            line-height: 1.7; -webkit-font-smoothing: antialiased;
+            font-size: 18px; line-height: 1.7; -webkit-font-smoothing: antialiased;
             text-transform: lowercase;
         }
         .page { max-width: 680px; margin: 0 auto; padding: 3rem 2rem 5rem 2rem; }
         .back {
             display: inline-flex; align-items: center; gap: 0.4rem;
-            color: var(--text-light); text-decoration: none; font-size: 0.88rem;
+            color: var(--text-light); text-decoration: none; font-size: 0.95rem;
             margin-bottom: 2.5rem; transition: color 0.2s;
         }
         .back:hover { color: var(--text); }
@@ -30,25 +30,36 @@
             background: #f5f5f5; border: 1px solid var(--border);
             display: flex; align-items: center; justify-content: center;
             font-size: 0.8rem; color: var(--text-light); flex-shrink: 0;
+            object-fit: cover;
         }
-        .project-name { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.02em; }
-        .project-meta { font-size: 0.88rem; color: var(--text-light); margin-bottom: 1rem; }
-        .project-subtitle { font-size: 1rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6; }
+        .project-name { font-size: 1.55rem; font-weight: 600; letter-spacing: -0.02em; }
+        .project-meta { font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem; }
+        .project-subtitle { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6; }
         .screenshots { margin: 2rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
         .screenshots img { width: 100%; border-radius: 8px; border: 1px solid var(--border); }
-        .body-text { font-size: 0.95rem; line-height: 1.85; color: var(--text); margin-bottom: 2rem; }
+        .body-text { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin-bottom: 2rem; }
         .body-text p { margin-bottom: 1.1rem; }
         .highlights-label {
-            font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+            font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em;
             text-transform: uppercase; color: var(--text-light); margin-bottom: 0.85rem;
         }
         .highlights { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
         .highlights li {
-            font-size: 0.9rem; color: var(--text-secondary);
+            font-size: 1rem; color: var(--text-secondary);
             padding-left: 1.1rem; position: relative; line-height: 1.5;
         }
         .highlights li::before { content: '–'; position: absolute; left: 0; color: var(--text-light); }
         .highlights li strong { color: var(--text); font-weight: 500; }
+        .video-embed {
+            margin: 2rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            aspect-ratio: 16 / 9;
+        }
+        .video-embed iframe {
+            width: 100%; height: 100%; display: block; border: none;
+        }
         @media (max-width: 640px) {
             .page { padding: 2rem 1.25rem 4rem 1.25rem; }
             .screenshots { grid-template-columns: 1fr; }
@@ -60,13 +71,17 @@
     <a href="index.html" class="back">← aidana daulbayeva</a>
 
     <div class="project-header">
-        <div class="logo-box">rg</div>
+        <img src="radiantgraph.png" class="logo-box" alt="radiantgraph">
         <div class="project-name">radiantgraph</div>
     </div>
     <div class="project-meta">first product hire · 2024–2025</div>
     <div class="project-subtitle">full-stack AI engagement platform for health plans and health services. built product culture, roadmap, and GTM from zero.</div>
 
     <!-- screenshots placeholder: <div class="screenshots"><img src="imgs/rg_1.png"><img src="imgs/rg_2.png"></div> -->
+
+    <div class="video-embed">
+        <iframe src="https://demo.arcade.software/PIUFWY3DTWADWiFmiexL?embed" loading="lazy" allowfullscreen></iframe>
+    </div>
 
     <div class="body-text">
         <p>when i joined, the company had no product. it had clients, engineers, and a ceo with a vision — but the day-to-day was service work: csvs, custom integrations, one-off decks. smart people doing unsustainable things.</p>

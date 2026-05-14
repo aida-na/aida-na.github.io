@@ -14,13 +14,13 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: var(--bg); color: var(--text);
-            line-height: 1.7; -webkit-font-smoothing: antialiased;
+            font-size: 18px; line-height: 1.7; -webkit-font-smoothing: antialiased;
             text-transform: lowercase;
         }
         .page { max-width: 680px; margin: 0 auto; padding: 3rem 2rem 5rem 2rem; }
         .back {
             display: inline-flex; align-items: center; gap: 0.4rem;
-            color: var(--text-light); text-decoration: none; font-size: 0.88rem;
+            color: var(--text-light); text-decoration: none; font-size: 0.95rem;
             margin-bottom: 2.5rem; transition: color 0.2s;
         }
         .back:hover { color: var(--text); }
@@ -30,21 +30,22 @@
             background: #f5f5f5; border: 1px solid var(--border);
             display: flex; align-items: center; justify-content: center;
             font-size: 0.8rem; color: var(--text-light); flex-shrink: 0;
+            object-fit: cover;
         }
-        .project-name { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.02em; }
-        .project-meta { font-size: 0.88rem; color: var(--text-light); margin-bottom: 1rem; }
-        .project-subtitle { font-size: 1rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6; }
+        .project-name { font-size: 1.55rem; font-weight: 600; letter-spacing: -0.02em; }
+        .project-meta { font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem; }
+        .project-subtitle { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6; }
         .screenshots { margin: 2rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
         .screenshots img { width: 100%; border-radius: 8px; border: 1px solid var(--border); }
-        .body-text { font-size: 0.95rem; line-height: 1.85; color: var(--text); margin-bottom: 2rem; }
+        .body-text { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin-bottom: 2rem; }
         .body-text p { margin-bottom: 1.1rem; }
         .highlights-label {
-            font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+            font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em;
             text-transform: uppercase; color: var(--text-light); margin-bottom: 0.85rem;
         }
         .highlights { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
         .highlights li {
-            font-size: 0.9rem; color: var(--text-secondary);
+            font-size: 1rem; color: var(--text-secondary);
             padding-left: 1.1rem; position: relative; line-height: 1.5;
         }
         .highlights li::before { content: '–'; position: absolute; left: 0; color: var(--text-light); }
@@ -60,13 +61,16 @@
     <a href="index.html" class="back">← main</a>
 
     <div class="project-header">
-        <div class="logo-box">dl</div>
+        <img src="daily.png" class="logo-box" alt="daily labs">
         <div class="project-name">daily labs</div>
     </div>
     <div class="project-meta">founder · pear vc fellow · 2026 →</div>
     <div class="project-subtitle">tools for memory, content curation, and a social network built from what you know — not who you know.</div>
 
-    <!-- screenshots placeholder: <div class="screenshots"><img src="imgs/daily_1.png"><img src="imgs/daily_2.png"></div> -->
+    <div class="screenshots">
+        <img src="domino%201.png" alt="domino screenshot 1">
+        <img src="domino%202.png" alt="domino screenshot 2">
+    </div>
 
     <div class="body-text">
         <p>the world is moving fast — AI, climate, geopolitics. nobody knows what's coming, but the people who can keep learning will have more options than those who can't. the problem is that learning after school is hard. not because people don't want to, but because the internet became a firehose, AI slop made it worse, and nobody has time to read a wall of text.</p>

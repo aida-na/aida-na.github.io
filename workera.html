@@ -14,13 +14,13 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: var(--bg); color: var(--text);
-            line-height: 1.7; -webkit-font-smoothing: antialiased;
+            font-size: 18px; line-height: 1.7; -webkit-font-smoothing: antialiased;
             text-transform: lowercase;
         }
         .page { max-width: 680px; margin: 0 auto; padding: 3rem 2rem 5rem 2rem; }
         .back {
             display: inline-flex; align-items: center; gap: 0.4rem;
-            color: var(--text-light); text-decoration: none; font-size: 0.88rem;
+            color: var(--text-light); text-decoration: none; font-size: 0.95rem;
             margin-bottom: 2.5rem; transition: color 0.2s;
         }
         .back:hover { color: var(--text); }
@@ -30,23 +30,24 @@
             background: #f5f5f5; border: 1px solid var(--border);
             display: flex; align-items: center; justify-content: center;
             font-size: 0.8rem; color: var(--text-light); flex-shrink: 0;
+            object-fit: cover;
         }
-        .project-name { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.02em; }
-        .project-meta { font-size: 0.88rem; color: var(--text-light); margin-bottom: 1rem; }
-        .project-subtitle { font-size: 1rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6; }
+        .project-name { font-size: 1.55rem; font-weight: 600; letter-spacing: -0.02em; }
+        .project-meta { font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem; }
+        .project-subtitle { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6; }
         .screenshots { margin: 2rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
         .screenshots img { width: 100%; border-radius: 8px; border: 1px solid var(--border); }
-        .body-text { font-size: 0.95rem; line-height: 1.85; color: var(--text); margin-bottom: 2rem; }
+        .body-text { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin-bottom: 2rem; }
         .body-text p { margin-bottom: 1.1rem; }
         .body-text a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
         .body-text a:hover { color: var(--text-secondary); }
         .highlights-label {
-            font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+            font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em;
             text-transform: uppercase; color: var(--text-light); margin-bottom: 0.85rem;
         }
         .highlights { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
         .highlights li {
-            font-size: 0.9rem; color: var(--text-secondary);
+            font-size: 1rem; color: var(--text-secondary);
             padding-left: 1.1rem; position: relative; line-height: 1.5;
         }
         .highlights li::before { content: '–'; position: absolute; left: 0; color: var(--text-light); }
@@ -62,13 +63,16 @@
     <a href="index.html" class="back">← aidana daulbayeva</a>
 
     <div class="project-header">
-        <div class="logo-box">w</div>
+        <img src="workera.png" class="logo-box" alt="workera">
         <div class="project-name">workera</div>
     </div>
     <div class="project-meta">product lead · 2025</div>
     <div class="project-subtitle">AI skills intelligence and personalized learning for fortune 500s and governments. founded by Andrew Ng.</div>
 
-    <!-- screenshots placeholder: <div class="screenshots"><img src="imgs/workera_1.png"><img src="imgs/workera_2.png"></div> -->
+    <div class="screenshots" style="grid-template-columns: 1fr;">
+        <img src="workera1.png" alt="workera screenshot 1">
+        <img src="workera2.png" alt="workera screenshot 2">
+    </div>
 
     <div class="body-text">
         <p>i joined to fix an activation crisis. 40% of users never opened the app. only 10% came back for a third assessment. the core tension: enterprises needed employees assessed to build skills intelligence, but people don't love being assessed — especially when they're not sure where the data goes.</p>

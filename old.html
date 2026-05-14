@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZVF15NBB4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-7ZVF15NBB4');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aidana daulbayeva</title>
+    <link rel="icon" type="image/jpeg" href="ad.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --border: #e0e0e0;
+            --sidebar-width: 200px;
+            --orange: #d77946;
+            --purple: #916fba;
+            --green: #62935e;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            text-transform: lowercase;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            padding: 3rem 2rem;
+            overflow-y: auto;
+        }
+
+        .sidebar-name {
+            font-weight: 600;
+            margin-bottom: 3rem;
+            font-size: 1.3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .sidebar-name a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .nav-item a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.2s ease;
+            display: block;
+        }
+
+        .nav-item a:hover {
+            color: var(--text);
+        }
+
+        .nav-item a.active {
+            color: var(--text);
+        }
+
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 1.5rem;
+            left: 1.5rem;
+            z-index: 200;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--text);
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 3rem var(--sidebar-width) 3rem 4rem;
+            max-width: none;
+            width: calc(100vw - var(--sidebar-width));
+        }
+
+        section {
+            padding: 2rem 0;
+            min-height: 40vh;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        #connect {
+            min-height: auto;
+        }
+
+        #education {
+            min-height: auto;
+            padding: 1rem 0;
+        }
+
+        section:first-of-type {
+            padding-top: 0;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-header {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        /* Minimal section variations - Pastel color scheme for all sections */
+        #about .section-header {
+            color: var(--orange);
+            font-weight: 500;
+        }
+
+        #projects .section-header {
+            color: var(--purple);
+            font-weight: 500;
+        }
+
+        #experience .section-header {
+            color: var(--green);
+            font-weight: 500;
+        }
+
+        #research-writing .section-header {
+            color: var(--orange);
+            font-weight: 500;
+        }
+
+        #speaking-recognition .section-header {
+            color: var(--purple);
+            font-weight: 500;
+        }
+
+        #community .section-header {
+            color: var(--green);
+            font-weight: 500;
+        }
+
+        #education .section-header {
+            color: var(--purple);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        #connect .section-header {
+            color: var(--purple);
+            font-weight: 500;
+        }
+
+        #experience {
+            padding-left: 1rem;
+            border-left: 2px solid #f0f0f0;
+            border-bottom: none;
+        }
+
+        #experience + section {
+            border-top: none;
+        }
+
+        #community .content-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        #community .content-item {
+            border-left: 2px solid #f0f0f0;
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #community .role {
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 968px) {
+            #community .content-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #community .content-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        #research .content-item {
+            border-left: 3px solid #f0f0f0;
+            padding-left: 1rem;
+        }
+
+
+        /* About Section */
+        .about-intro {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .about-intro p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Projects Section - Card Layout */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 0.25rem;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .project-text {
+            flex: 1;
+        }
+
+        /* Better grid on larger screens */
+        @media (min-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .project-card .company {
+            font-weight: 400;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .project-card .company a {
+            color: var(--text);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .project-card .company a:hover {
+            opacity: 0.7;
+        }
+
+        .project-card .role {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .project-card .description {
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .project-highlight {
+            font-weight: 600;
+        }
+
+        .current-projects {
+            margin-bottom: 3rem;
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 2px solid var(--border);
+            margin: 2rem 0;
+            border-radius: 1px;
+        }
+
+        /* Color classes for companies */
+        .color-orange { color: var(--orange); }
+        .color-pink { color: var(--pink); }
+        .color-blue { color: var(--blue); }
+        .color-red { color: var(--red); }
+        .color-teal { color: var(--teal); }
+
+        /* Divider */
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+
+        /* Experience Section */
+
+        /* Research Section */
+
+        /* Community Section */
+
+        /* Connect Section */
+        .connect-text {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--text);
+            text-decoration: underline;
+        }
+
+        /* Writing */
+        .content-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .content-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        /* Bullet list styling for compact sections */
+        .bullet-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .bullet-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--text);
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: var(--text-secondary);
+        }
+
+        .content-item .title {
+            font-weight: 400;
+        }
+
+        .content-item .title a {
+            color: var(--text);
+            text-decoration: underline;
+        }
+
+        .project-card .role a,
+        .modal-subtitle a {
+            text-decoration: underline;
+        }
+
+        .content-item .meta {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .content-item .description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Connect Section */
+        .connect-text {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--text);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 0;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 0.75rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background: #f5f5f5;
+            color: var(--text);
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 0.75rem 0.75rem 0 0;
+        }
+
+        .modal-content {
+            padding: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .modal-subtitle {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .modal-description {
+            color: var(--text);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .modal-description p {
+            margin-bottom: 0.75rem;
+        }
+
+        .modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .modal-tag {
+            background: #f5f5f5;
+            color: var(--text-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 640px) {
+            .modal {
+                width: 95%;
+                max-height: 90vh;
+            }
+
+            .modal-image {
+                height: 180px;
+            }
+
+            .modal-content {
+                padding: 1rem;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                background: var(--bg);
+                border-right: 1px solid var(--border);
+                z-index: 150;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 5rem 2rem 2rem 2rem;
+                width: 100vw;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .main-content {
+                padding: 5rem 1.5rem 2rem 1.5rem;
+            }
+        }
+
+        /* Large screen optimization */
+        @media (min-width: 1400px) {
+            .main-content {
+                padding: 3rem var(--sidebar-width) 3rem 4rem;
+            }
+        }
+
+        @media (min-width: 1800px) {
+            .main-content {
+                padding: 3rem var(--sidebar-width) 3rem 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-name">
+            <a href="#about">aidana daulbayeva</a>
+        </div>
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#about" class="nav-link">about</a></li>
+                <li class="nav-item"><a href="more.html#experience" class="nav-link">experience</a></li>
+                <li class="nav-item"><a href="more.html#research-writing" class="nav-link">research</a></li>
+                <li class="nav-item"><a href="more.html#speaking-recognition" class="nav-link">speaking & recognition</a></li>
+                <li class="nav-item"><a href="more.html#community" class="nav-link">community</a></li>
+                <li class="nav-item"><a href="#connect" class="nav-link">connect</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- About Section -->
+        <section id="about">
+            <div class="section-header">about</div>
+            <div class="about-intro">
+                <p>i spend a lot of time observing human behavior - how people think, learn, and adapt, and exploring how we can build technology that genuinely helps them grow.</p>
+                <p>i grew up in Kazakhstan, in a family of academics who made a lot work with a little. focus on learning and personal growth opened a lot of doors for me, and community was always the thing that held you when the doors were slow to open. </p>
+                <p>i've spent the last decade working at the intersection of personal growth, communities, technology, and behavior change. <a href="https://link.springer.com/article/10.1007/s40596-023-01900-8" target="_blank" style="color:inherit;text-decoration:underline;">AI research at MIT Media Lab</a> (commercialized, NSF-funded, deployed at Cornell Med). <a href="https://radiantgraph.com/platform/ai-voice-studio" target="_blank" style="color:inherit;text-decoration:underline;">voice agents and AI personalization</a> shipped to CVS and Blue Shield. engagement systems at <a href="https://www.workera.ai/" target="_blank" style="color:inherit;text-decoration:underline;">Andrew Ng's Workera</a>. alongside all of it, building infrastructure for others: <a href="https://hacknu25.nuacm.kz/" target="_blank" style="color:inherit;text-decoration:underline;">the largest hackathon in Kazakhstan</a>, <a href="https://avpn.asia/organisation/impact-hub-almaty/" target="_blank" style="color:inherit;text-decoration:underline;">social impact incubators across Central Asia</a>, <a href="https://www.youtube.com/watch?v=y7co3X0xqgk" target="_blank" style="color:inherit;text-decoration:underline;">MIT's Brazil healthtech accelerator</a>, <a href="https://luma.com/fyi.books" target="_blank" style="color:inherit;text-decoration:underline;">a book club in SF</a>.</p>
+                <p>currently tinkering with <a href="https://dailylabs.co" target="_blank" style="color:inherit;text-decoration:underline;">Daily</a> — a personal knowledge platform for the scattered attention era, with community at the center.</p>
+            </div>
+        </section>
+
+        <!-- Connect Section -->
+        <section id="connect">
+            <div class="section-header">connect</div>
+            <div class="social-links">
+                <a href="https://substack.com/@aidanad" target="_blank">writing</a>
+                <a href="https://www.goodreads.com/user/show/94981978-aidana" target="_blank">reading</a>
+                <a href="https://www.instagram.com/____a.d/" target="_blank">taking photos</a>
+                <a href="https://open.spotify.com/user/21dzw4z7joeryrdlxpncjvh7a?si=4e9001b0dfe64fec&nd=1&dlsi=c7e21fff693246ff" target="_blank">listening</a>
+                <a href="https://linkedin.com/in/aidanad" target="_blank">linkedin</a>
+                <a href="https://github.com/aida-na" target="_blank">github</a>
+                <a href="mailto:aidana@alum.mit.edu">email</a>
+            </div>
+        </section>
+
+        <footer>
+            <p class="footer-text">aidana daulbayeva © 2025 from sunny (not) san francisco</p>
+        </footer>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        // Close menu when clicking a link on mobile
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 968) {
+                    document.getElementById('sidebar').classList.remove('active');
+                }
+            });
+        });
+
+        // Active section highlighting on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function highlightNavigation() {
+            let scrollY = window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightNavigation);
+        window.addEventListener('load', highlightNavigation);
+
+    </script>
+</body>
+</html>

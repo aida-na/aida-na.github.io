@@ -14,13 +14,13 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: var(--bg); color: var(--text);
-            line-height: 1.7; -webkit-font-smoothing: antialiased;
+            font-size: 18px; line-height: 1.7; -webkit-font-smoothing: antialiased;
             text-transform: lowercase;
         }
         .page { max-width: 680px; margin: 0 auto; padding: 3rem 2rem 5rem 2rem; }
         .back {
             display: inline-flex; align-items: center; gap: 0.4rem;
-            color: var(--text-light); text-decoration: none; font-size: 0.88rem;
+            color: var(--text-light); text-decoration: none; font-size: 0.95rem;
             margin-bottom: 2.5rem; transition: color 0.2s;
         }
         .back:hover { color: var(--text); }
@@ -30,25 +30,31 @@
             background: #f5f5f5; border: 1px solid var(--border);
             display: flex; align-items: center; justify-content: center;
             font-size: 0.8rem; color: var(--text-light); flex-shrink: 0;
+            object-fit: cover;
         }
-        .project-name { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.02em; }
-        .project-meta { font-size: 0.88rem; color: var(--text-light); margin-bottom: 1rem; }
-        .project-subtitle { font-size: 1rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6; }
-        .body-text { font-size: 0.95rem; line-height: 1.85; color: var(--text); margin-bottom: 2rem; }
+        .project-name { font-size: 1.55rem; font-weight: 600; letter-spacing: -0.02em; }
+        .project-meta { font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem; }
+        .project-subtitle { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6; }
+        .body-text { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin-bottom: 2rem; }
         .body-text p { margin-bottom: 1.1rem; }
         .highlights-label {
-            font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+            font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em;
             text-transform: uppercase; color: var(--text-light); margin-bottom: 0.85rem;
         }
         .highlights { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
         .highlights li {
-            font-size: 0.9rem; color: var(--text-secondary);
+            font-size: 1rem; color: var(--text-secondary);
             padding-left: 1.1rem; position: relative; line-height: 1.5;
         }
         .highlights li::before { content: '–'; position: absolute; left: 0; color: var(--text-light); }
         .highlights li strong { color: var(--text); font-weight: 500; }
+        .braave-hero { margin-top: 2.5rem; }
+        .braave-hero img { width: 100%; border-radius: 10px; display: block; }
+        .braave-phones { display: flex; gap: 1.5rem; justify-content: center; align-items: flex-end; margin-top: 1.5rem; }
+        .braave-phones img { width: 38%; mix-blend-mode: multiply; }
         @media (max-width: 640px) {
             .page { padding: 2rem 1.25rem 4rem 1.25rem; }
+            .braave-phones img { width: 45%; }
         }
     </style>
 </head>
@@ -57,16 +63,22 @@
     <a href="index.html" class="back">← main</a>
  
     <div class="project-header">
-        <div class="logo-box">br</div>
+        <img src="braave.png" class="logo-box" alt="braave">
         <div class="project-name">braave</div>
     </div>
-    <div class="project-meta">product advisor · 2025</div>
+    <div class="project-meta">product advisor · 2026</div>
     <div class="project-subtitle">a smart bra for women's hormonal health — ecg, skin temp, and biometric signals that make the invisible measurable.</div>
- 
+    <div class="braave-hero">
+        <img src="braave1.jpg" alt="braave app screen">
+    </div>
     <div class="body-text">
         <p>braave is building a smart bra with medical-grade ecg, heart rate, skin temperature, and galvanic sensors precise enough to infer hormonal fluctuations — oestrogen, progesterone, cortisol, thyroid, lh — from the autonomic and thermal signatures they leave behind. designed specifically for perimenopause and menopause, a population most wearables weren't built for.</p>
  
         <p>the b2b use case integrates bra data with oura ring and patient symptoms into a clinical dashboard — giving providers continuous visibility between visits into whether a hormonal or lifestyle protocol is working. consumer product ships 2027. i'm advising on the full software stack: medical dashboard, integration architecture, and consumer app.</p>
+    </div>
+
+    <div class="braave-hero">
+        <img src="braave2.png" alt="braave">
     </div>
 </div>
 </body>
